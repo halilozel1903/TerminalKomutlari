@@ -1,0 +1,138 @@
+{
+"DosyaKomutlari":[
+{
+"KomutAdi":"ls",
+"Islevi":"Klasör altındaki dosyaların adlarını verir"
+},
+{
+"KomutAdi":"ls -i",
+"Islevi":"Dosyanın inode numarasını gösterir"
+},
+{
+"KomutAdi":"ls -R",
+"Islevi":"Yinemeli olarak alt dizinlerin listesini gösterir"
+},
+{
+"KomutAdi":"ls -l",
+"Islevi":"Dosya veya dizini gösterir.Dosyanın değiştirilme tarihini ve saatini gösterir."
+},
+  {
+    "KomutAdi":"ls -lh",
+    "Islevi":"Okunabilir biçimde dosya boyutlarını gösterir"
+  }
+,
+  {
+    "KomutAdi":"ls -al",
+    "Islevi":"Gizli dosyalarıda gösterir"
+  },
+  {
+    "KomutAdi":"cd dosyayolu",
+    "Islevi":"Bulunduğunuz dosya yolunu değiştirir"
+  },
+  {
+    "KomutAdi":"cd ..",
+    "Islevi":"Bir önceki dosya yoluna gider"
+  },
+  {
+    "KomutAdi":"pwd",
+    "Islevi":"Bulunduğunuz dizini verir"
+  },
+  {
+    "KomutAdi":"mkdir dizin",
+    "Islevi":"Yeni bir dizin oluşturur"
+  },
+  {
+    "KomutAdi":"rm dosya",
+    "Islevi":"Dosyayı siler"
+  },
+  {
+    "KomutAdi":"rm -r dizin",
+    "Islevi":"Dizini siler"
+  },
+  {
+    "KomutAdi":"rm -f dosya",
+    "Islevi":"Dosyayı kaldırmaya zorlar"
+  }
+,
+  {
+    "KomutAdi":"rm -rf dizin",
+    "Islevi":"Dizini kaldırmaya zorlar"
+  },
+  {
+    "KomutAdi":"cp dosyaA dosyaB",
+    "Islevi":"dosyaA'yi dosyaB'ye kopyalar"
+  },
+  {
+    "KomutAdi":"cp -r dizin1 dizin2",
+    "Islevi":"dizin1'i dizin2'ye kopyalar.Eğer dizin2 diye dizin yoksa dizin2 adında bir dizin oluşturur."
+  },
+  {
+    "KomutAdi":"mv dosya1 dosya2",
+    "Islevi":"dosya1 'i dosya2' ye taşır"
+  },
+  {
+    "KomutAdi":"ls -s dosya link",
+    "Islevi":"Dosyada sembolik bir link oluşturur."
+  },
+  {
+    "KomutAdi":"touch dosya",
+    "Islevi":"Ya dosya oluşturur yada dosyayı günceller"
+  },
+  {
+    "KomutAdi":"cat>dosya",
+    "Islevi":"Dosyanın içine input yazar"
+  },
+  {
+    "KomutAdi":"more dosya",
+    "Islevi":"Dosyanın içeriğini çıktı olarak verir"
+  },
+  {
+    "KomutAdi":"head dosya",
+    "Islevi":"Dosyanın ilk 10 satırını verir"
+  },
+  {
+    "KomutAdi":"less text",
+    "Islevi":"Text dosyasının içeriğini çıktılar"
+  }
+
+],
+  "AramaKomutlari":[
+
+  {
+  "KomutAdi":"locate dosya",
+  "Islevi":"Dosyanın bulunduğu dizindeki diğer dosyaları dizinler"
+},
+    {
+      "KomutAdi":"find / -isim foo",
+      "Islevi":"Dosyaya verilen isim ile arama yapar"
+    },
+    {
+      "KomutAdi":"locate dosya",
+      "Islevi":"Dosyanın bulunduğu dizindeki diğer dosyaları dizinler"
+    }
+
+
+
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
