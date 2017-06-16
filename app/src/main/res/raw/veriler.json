@@ -1,5 +1,5 @@
 {
-"DosyaKomutlari":[
+"Dosya Komutlari":[
 {
 "KomutAdi":"ls",
 "Islevi":"Klasör altındaki dosyaların adlarını verir"
@@ -96,7 +96,7 @@
   }
 
 ],
-  "AramaKomutlari":[
+  "Arama Komutlari":[
 
   {
   "KomutAdi":"locate dosya",

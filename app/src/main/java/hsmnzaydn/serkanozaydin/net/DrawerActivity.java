@@ -18,7 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import hsmnzaydn.serkanozaydin.net.Fragment.ReycliviewFragment;
+import hsmnzaydn.serkanozaydin.net.Fragment.KategoriReycliviewFragment;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,7 +32,7 @@ private FragmentManager fragmentManager;
 
         fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
-        ReycliviewFragment fragment=new ReycliviewFragment();
+        KategoriReycliviewFragment fragment=new KategoriReycliviewFragment();
         transaction.replace(R.id.container,fragment,"deneme");
         transaction.addToBackStack(null);
         transaction.commit();

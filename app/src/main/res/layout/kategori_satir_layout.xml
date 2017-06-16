@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/lineerlayout">
@@ -11,6 +11,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/kategori_satir_layout_cardview"
         app:cardCornerRadius="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         app:cardElevation="5dp">
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,6 +21,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="2dp"
             android:id="@+id/kategori_satir_layout_kategoriResmi"/>
@@ -36,4 +39,4 @@
 
     </android.support.v7.widget.CardView>
 
-</RelativeLayout>
+</LinearLayout>

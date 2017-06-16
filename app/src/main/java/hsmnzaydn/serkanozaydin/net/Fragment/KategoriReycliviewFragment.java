@@ -21,7 +21,7 @@ import hsmnzaydn.serkanozaydin.net.R;
  * Created by hsmnzaydn on 16.06.2017.
  */
 
-public class ReycliviewFragment extends Fragment {
+public class KategoriReycliviewFragment extends Fragment {
     private View root;
     private RecyclerView Kategoriler;
     private List<Kategori> kategoriList=new ArrayList<Kategori>();
@@ -31,11 +31,18 @@ public class ReycliviewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root=inflater.inflate(R.layout.reycliview_layout,container,false);
+        kategoriList.add(new Kategori(R.drawable.folder,"Dosya Komutları"));
         kategoriList.add(new Kategori(R.drawable.search,"Arama Komutları"));
         kategoriList.add(new Kategori(R.drawable.compression,"Sıkıştırma Komutları"));
         kategoriList.add(new Kategori(R.drawable.ftp,"FTP Komutları"));
+        kategoriList.add(new Kategori(R.drawable.search,"Ağ Komutları"));
+        kategoriList.add(new Kategori(R.drawable.search,"İzin Komutları"));
+        kategoriList.add(new Kategori(R.drawable.search,"Sistem Komutları"));
 
-        Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_komut_basliklari);
+
+
+
+        init();
 
 
 
@@ -61,5 +68,7 @@ public class ReycliviewFragment extends Fragment {
         return root;
     }
 
-
+    public void init(){
+        Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_komut_basliklari);
+    }
 }

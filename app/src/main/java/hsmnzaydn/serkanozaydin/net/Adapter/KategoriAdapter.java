@@ -1,7 +1,10 @@
 package hsmnzaydn.serkanozaydin.net.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,13 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
 
 import java.util.List;
 
+import hsmnzaydn.serkanozaydin.net.Fragment.KomutReycliviewFragment;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
 import hsmnzaydn.serkanozaydin.net.R;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by hsmnzaydn on 16.06.2017.
@@ -43,7 +50,7 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
         private TextView kategoriBasligi;
 
         private CardView card_view;
-        public RelativeLayout rel;
+        public LinearLayout rel;
 
         //Hüseyin Serkan Özaydin:Cardviewdeki veriler ile classtaki verileri baplıyoruz
         public ViewHolder(View view) {
@@ -52,7 +59,7 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             card_view = (CardView) view.findViewById(R.id.kategori_satir_layout_cardview);
             kategoriBasligi = (TextView) view.findViewById(R.id.kategori_satir_layout_kategoriBasligi);
             kategoriResmi = (ImageView) view.findViewById(R.id.kategori_satir_layout_kategoriResmi);
-            rel= (RelativeLayout) view.findViewById(R.id.lineerlayout);
+            rel= (LinearLayout) view.findViewById(R.id.lineerlayout);
 
 
 
@@ -91,7 +98,42 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.compression);
 
         }
+        if(kategori.getKategoriBasligi().equals("Ağ Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.network);
 
+        }
+        if(kategori.getKategoriBasligi().equals("İzin Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.lock);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Sistem Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.system);
+
+        }
+
+        holder.rel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                SharedPreferences shared_preferences = context.getSharedPreferences("dosya_adi",MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = shared_preferences.edit();
+
+                Gson gson = new Gson();
+                String json = gson.toJson(kategori);
+                editor.putString("key", json);
+                editor.commit();
+
+                fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                KomutReycliviewFragment fragment = new KomutReycliviewFragment();
+                transaction.replace(R.id.container, fragment, "deneme");
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
 
 
 
@@ -105,7 +147,6 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
 
     @Override
     public int getItemCount() {
-
         return liste_kategori.size();
     }
 
