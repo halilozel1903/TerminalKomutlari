@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#bfbfbf</color>
     <color name="colorAccent">#FF4081</color>
     <color name="DrawerBackground">#b4b4bf</color>
+    <color name="KomutBasliklari">#7575f5</color>
+
 </resources>

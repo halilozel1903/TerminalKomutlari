@@ -24,7 +24,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         Thread islem=new Thread(){
             public void run(){
                 try{
-                    sleep(2300);
+                    sleep(2000);
                     Intent intent=new Intent(SplashScreenActivity.this,DrawerActivity.class);
                     startActivity(intent);
                 }catch (Exception e){

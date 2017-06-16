@@ -30,15 +30,26 @@ public class KategoriReycliviewFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        root=inflater.inflate(R.layout.reycliview_layout,container,false);
-        kategoriList.add(new Kategori(R.drawable.folder,"Dosya Komutları"));
-        kategoriList.add(new Kategori(R.drawable.search,"Arama Komutları"));
-        kategoriList.add(new Kategori(R.drawable.compression,"Sıkıştırma Komutları"));
-        kategoriList.add(new Kategori(R.drawable.ftp,"FTP Komutları"));
-        kategoriList.add(new Kategori(R.drawable.search,"Ağ Komutları"));
-        kategoriList.add(new Kategori(R.drawable.search,"İzin Komutları"));
-        kategoriList.add(new Kategori(R.drawable.search,"Sistem Komutları"));
-
+        root=inflater.inflate(R.layout.kategori_reycliview_layout,container,false);
+        if(kategoriList.size()==0) {
+            kategoriList.add(new Kategori(R.drawable.folder, "Dosya Komutları"));
+            kategoriList.add(new Kategori(R.drawable.search, "Arama Komutları"));
+            kategoriList.add(new Kategori(R.drawable.compression, "Sıkıştırma Komutları"));
+            kategoriList.add(new Kategori(R.drawable.ftp, "FTP Komutları"));
+            kategoriList.add(new Kategori(R.drawable.search, "Ağ Komutları"));
+            kategoriList.add(new Kategori(R.drawable.search, "İzin Komutları"));
+            kategoriList.add(new Kategori(R.drawable.search, "Sistem Komutları"));
+        }
+        else {
+            kategoriList.clear();
+            kategoriList.add(new Kategori(R.drawable.folder, "Dosya Komutları"));
+            kategoriList.add(new Kategori(R.drawable.search, "Arama Komutları"));
+            kategoriList.add(new Kategori(R.drawable.compression, "Sıkıştırma Komutları"));
+            kategoriList.add(new Kategori(R.drawable.ftp, "FTP Komutları"));
+            kategoriList.add(new Kategori(R.drawable.search, "Ağ Komutları"));
+            kategoriList.add(new Kategori(R.drawable.search, "İzin Komutları"));
+            kategoriList.add(new Kategori(R.drawable.search, "Sistem Komutları"));
+        }
 
 
 
@@ -69,6 +80,6 @@ public class KategoriReycliviewFragment extends Fragment {
     }
 
     public void init(){
-        Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_komut_basliklari);
+        Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_kategori_basliklari);
     }
 }
