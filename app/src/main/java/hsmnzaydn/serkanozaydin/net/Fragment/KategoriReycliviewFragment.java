@@ -6,7 +6,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -23,10 +27,11 @@ import hsmnzaydn.serkanozaydin.net.Veritabanı;
  * Created by hsmnzaydn on 16.06.2017.
  */
 
-public class KategoriReycliviewFragment extends Fragment {
+public class KategoriReycliviewFragment extends Fragment implements SearchView.OnQueryTextListener {
     private View root;
     private RecyclerView Kategoriler;
     private List<Kategori> kategoriList=new ArrayList<Kategori>();
+    private KategoriAdapter adapter;
 
 
     @Nullable
@@ -70,7 +75,7 @@ public class KategoriReycliviewFragment extends Fragment {
 
 
 
-        KategoriAdapter adapter=new KategoriAdapter(kategoriList,getContext());
+        adapter=new KategoriAdapter(kategoriList,getContext());
 
         Kategoriler.setHasFixedSize(true);
 
@@ -94,5 +99,31 @@ public class KategoriReycliviewFragment extends Fragment {
 
     public void init(){
         Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_kategori_basliklari);
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.drawer, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint("Search");
+
+        super.onCreateOptionsMenu(menu, inflater);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
     }
 }

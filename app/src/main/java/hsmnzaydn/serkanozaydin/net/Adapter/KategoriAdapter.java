@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import hsmnzaydn.serkanozaydin.net.Fragment.KomutReycliviewFragment;
@@ -165,6 +166,13 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
+    }
+
+    public void setFilter(ArrayList<Kategori> newList){
+
+        liste_kategori=new ArrayList<>();
+        liste_kategori.addAll(newList);
+        notifyDataSetChanged();
     }
 
 

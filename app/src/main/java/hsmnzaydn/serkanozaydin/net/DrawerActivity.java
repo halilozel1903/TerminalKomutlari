@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -20,12 +22,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 import hsmnzaydn.serkanozaydin.net.Fragment.KategoriReycliviewFragment;
 import hsmnzaydn.serkanozaydin.net.Fragment.KomutEkleFragment;
 import hsmnzaydn.serkanozaydin.net.Fragment.KomutReycliviewFragment;
+import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
 
 public class DrawerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
 private FragmentManager fragmentManager;
     private ImageButton actionButton;
     @Override
@@ -101,10 +106,10 @@ private FragmentManager fragmentManager;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.drawer, menu);
+        //getMenuInflater().inflate(R.menu.drawer,menu);
+
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -113,12 +118,14 @@ private FragmentManager fragmentManager;
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_search) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -144,4 +151,7 @@ private FragmentManager fragmentManager;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }
