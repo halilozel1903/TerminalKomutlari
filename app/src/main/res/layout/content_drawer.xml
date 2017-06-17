@@ -9,4 +9,16 @@
     tools:context="hsmnzaydn.serkanozaydin.net.DrawerActivity"
     tools:showIn="@layout/app_bar_drawer">
 
+    <ImageButton
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:id="@+id/ActionButton"
+        android:background="@drawable/oval"
+        android:elevation="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="65dp"
+        android:layout_marginRight="25dp"
+        android:src="@drawable/plus"
+        android:layout_alignParentRight="true" />
 </RelativeLayout>

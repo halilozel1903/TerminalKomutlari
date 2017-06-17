@@ -14,8 +14,8 @@ import com.google.gson.Gson;
 
 import hsmnzaydn.serkanozaydin.net.JsonParse;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
-import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 import hsmnzaydn.serkanozaydin.net.R;
+import hsmnzaydn.serkanozaydin.net.Veritabanı;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -31,7 +31,7 @@ public class KomutReycliviewFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        root=inflater.inflate(R.layout.komut_reycliview_fragment,container,false);
+        root=inflater.inflate(R.layout.fragment_komut_reycliview,container,false);
         init();
 
         SharedPreferences shared_preferences = getContext().getSharedPreferences("dosya_adi",MODE_PRIVATE);
@@ -40,8 +40,18 @@ public class KomutReycliviewFragment extends Fragment {
         String json = shared_preferences.getString("key", "");
         Kategori kategori = gson.fromJson(json, Kategori.class);
 
-        JsonParse parse=new JsonParse(getContext(),Komutlar,kategori.getKategoriBasligi());
-        parse.DuyurulariCek();
+
+        if(kategori.getKategoriBasligi().equals("Benim Komutlarım")){
+            Veritabanı db=new Veritabanı(getContext(),Komutlar);
+            db.TumKayitlariGetir();
+
+        }
+        else {
+            JsonParse parse=new JsonParse(getContext(),Komutlar,kategori.getKategoriBasligi());
+            parse.KomutlariCek();
+        }
+
+
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 

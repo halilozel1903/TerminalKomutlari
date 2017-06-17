@@ -10,8 +10,7 @@ public class Kategori {
     private String kategoriBasligi;
 
 
-    public Kategori(int kategoriResmi,String kategoriBasligi){
-        this.setKategoriResmi(kategoriResmi);
+    public Kategori(String kategoriBasligi){
         this.setKategoriBasligi(kategoriBasligi);
     }
 

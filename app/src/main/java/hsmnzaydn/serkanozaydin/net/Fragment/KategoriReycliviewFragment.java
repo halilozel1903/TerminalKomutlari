@@ -15,7 +15,9 @@ import java.util.List;
 
 import hsmnzaydn.serkanozaydin.net.Adapter.KategoriAdapter;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
+import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 import hsmnzaydn.serkanozaydin.net.R;
+import hsmnzaydn.serkanozaydin.net.Veritabanı;
 
 /**
  * Created by hsmnzaydn on 16.06.2017.
@@ -30,25 +32,36 @@ public class KategoriReycliviewFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        root=inflater.inflate(R.layout.kategori_reycliview_layout,container,false);
+        root=inflater.inflate(R.layout.fragment_kategori_reycliview,container,false);
+        Veritabanı db=new Veritabanı(getContext());
         if(kategoriList.size()==0) {
-            kategoriList.add(new Kategori(R.drawable.folder, "Dosya Komutları"));
-            kategoriList.add(new Kategori(R.drawable.search, "Arama Komutları"));
-            kategoriList.add(new Kategori(R.drawable.compression, "Sıkıştırma Komutları"));
-            kategoriList.add(new Kategori(R.drawable.ftp, "FTP Komutları"));
-            kategoriList.add(new Kategori(R.drawable.search, "Ağ Komutları"));
-            kategoriList.add(new Kategori(R.drawable.search, "İzin Komutları"));
-            kategoriList.add(new Kategori(R.drawable.search, "Sistem Komutları"));
+            kategoriList.add(new Kategori("Dosya Komutları"));
+            kategoriList.add(new Kategori( "Arama Komutları"));
+            kategoriList.add(new Kategori("Sıkıştırma Komutları"));
+            kategoriList.add(new Kategori( "FTP Komutları"));
+            kategoriList.add(new Kategori("Ağ Komutları"));
+            kategoriList.add(new Kategori("İzin Komutları"));
+            kategoriList.add(new Kategori("Sistem Komutları"));
+            kategoriList.add(new Kategori("Pacman Komutları"));
+            kategoriList.add(new Kategori("Milis Linux Komutları"));
+            kategoriList.add(new Kategori("Fux Project Komutları"));
+            kategoriList.add(new Kategori("Benim Komutlarım"));
+
+
         }
         else {
             kategoriList.clear();
-            kategoriList.add(new Kategori(R.drawable.folder, "Dosya Komutları"));
-            kategoriList.add(new Kategori(R.drawable.search, "Arama Komutları"));
-            kategoriList.add(new Kategori(R.drawable.compression, "Sıkıştırma Komutları"));
-            kategoriList.add(new Kategori(R.drawable.ftp, "FTP Komutları"));
-            kategoriList.add(new Kategori(R.drawable.search, "Ağ Komutları"));
-            kategoriList.add(new Kategori(R.drawable.search, "İzin Komutları"));
-            kategoriList.add(new Kategori(R.drawable.search, "Sistem Komutları"));
+            kategoriList.add(new Kategori("Dosya Komutları"));
+            kategoriList.add(new Kategori( "Arama Komutları"));
+            kategoriList.add(new Kategori("Sıkıştırma Komutları"));
+            kategoriList.add(new Kategori( "FTP Komutları"));
+            kategoriList.add(new Kategori("Ağ Komutları"));
+            kategoriList.add(new Kategori("İzin Komutları"));
+            kategoriList.add(new Kategori("Sistem Komutları"));
+            kategoriList.add(new Kategori("Pacman Komutları"));
+            kategoriList.add(new Kategori("Milis Linux Komutları"));
+            kategoriList.add(new Kategori("Fux Project Komutları"));
+            kategoriList.add(new Kategori("Benim Komutlarım"));
         }
 
 

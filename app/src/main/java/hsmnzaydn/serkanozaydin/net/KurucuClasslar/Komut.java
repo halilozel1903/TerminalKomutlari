@@ -14,6 +14,9 @@ public class Komut {
         this.setKomutBasligi(komutBasligi);
         this.setKomutIslevi(komutIslevi);
     }
+    public Komut(){
+
+    }
 
     public String getKomutBasligi() {
         return komutBasligi;

@@ -52,7 +52,7 @@ public class JsonParse {
     }
 
 
-    public void DuyurulariCek(){
+    public void KomutlariCek(){
         InputStream is=context.getResources().openRawResource(R.raw.veriler);
 
         try {

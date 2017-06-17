@@ -110,6 +110,18 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.system);
 
         }
+        if(kategori.getKategoriBasligi().equals("Pacman Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.pacman);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Fux Project Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.fux);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Milis Linux Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.milis);
+
+        }
 
         holder.rel.setOnClickListener(new View.OnClickListener() {
             @Override
