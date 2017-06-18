@@ -1,6 +1,8 @@
 package hsmnzaydn.serkanozaydin.net;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -133,17 +135,23 @@ private FragmentManager fragmentManager;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.other) {
+            final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=hüseyin serkan özaydin&hl=tr")));
+            } catch (android.content.ActivityNotFoundException anfe) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/search?q=h%C3%BCseyin%20serkan%20%C3%B6zaydin&hl=tr")));
+            }        } else if (id == R.id.bana_ulas) {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/html");
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "serkan.zaydn@gmail.com" });
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Terminal Komutları Mail");
+            intent.putExtra(Intent.EXTRA_TEXT, "");
+            startActivity(Intent.createChooser(intent, "Send Email"));
 
-        } else if (id == R.id.nav_slideshow) {
+        }else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.oyla) {
 
         }
 

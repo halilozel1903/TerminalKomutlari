@@ -123,6 +123,10 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.milis);
 
         }
+        if(kategori.getKategoriBasligi().equals("Benim Komutlarım")){
+            holder.kategoriResmi.setImageResource(R.drawable.mycode);
+
+        }
 
         holder.rel.setOnClickListener(new View.OnClickListener() {
             @Override
