@@ -9,6 +9,7 @@
     tools:context="hsmnzaydn.serkanozaydin.net.DrawerActivity"
     tools:showIn="@layout/app_bar_drawer">
 
+
     <ImageButton
         android:layout_width="65dp"
         android:layout_height="65dp"

@@ -127,6 +127,10 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.mycode);
 
         }
+        if(kategori.getKategoriBasligi().equals("Git Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.git);
+
+        }
 
         holder.rel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,10 +146,13 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
                 editor.putString("key", json);
                 editor.commit();
 
+
+
                 fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 KomutReycliviewFragment fragment = new KomutReycliviewFragment();
                 transaction.replace(R.id.container, fragment, "deneme");
+                transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                 transaction.addToBackStack(null);
                 transaction.commit();
 

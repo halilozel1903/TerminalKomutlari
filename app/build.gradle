@@ -7,7 +7,7 @@ android {
         applicationId "hsmnzaydn.serkanozaydin.net"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
+        versionCode 3
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -31,4 +31,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.3'
     compile 'com.android.support:cardview-v7:21.0.2'
     compile 'com.google.code.gson:gson:2.2.4'
+
+
 }

@@ -282,6 +282,12 @@
 },{
       "KomutAdi":"date;who",
       "Islevi":"Tarih ve kullanıcıyı gösterir"
+    },{
+      "KomutAdi":"sudo komut",
+      "Islevi":"Komutu yönetici izni ile çalıştırır"
+    },{
+      "KomutAdi":"sudo su",
+      "Islevi":"Terminalde yönetici moduna geçersiniz"
     },
     {
       "KomutAdi":"cal",
@@ -340,6 +346,59 @@
     },{
       "KomutAdi":"chmod 777 dosya",
       "Islevi":"Dosyaya okuma,yazma ve çalıştırma izni verir"
+    }
+  ],
+
+  "Git Komutları":[
+    {
+  "KomutAdi":"git config --global user.name \"Kullanıcı adı\"",
+  "Islevi":"Git kullanırken kullanacağınız kullanıcı adını belirler"
+},{
+"KomutAdi":"git config --global email \"mailAdresi\"",
+"Islevi":"Git kullanırken kullanacağınız mail adresini belirler"
+},{
+      "KomutAdi":"git log",
+      "Islevi":"Yerel depoda yapılmış olan tüm değişiklikleri gösterir"
+    },
+    {
+      "KomutAdi":"git status",
+      "Islevi":"Deponuzda yaptığınız değişiklikleri gösterir"
+    },{
+      "KomutAdi":"git clone depoadresi",
+      "Islevi":"Bulunduğunuz klasöre depoyu kopyalar"
+    },{
+      "KomutAdi":"git clone kullaniciadi@sunucu:/yol/depo ",
+      "Islevi":"Uzak sunucudaki depoyu bulunduğunuz klasöre depolar"
+    },{
+      "KomutAdi":"git add dosyaadı",
+      "Islevi":"Depoya yollamak istediğiniz dosyaları indexe ekler"
+    },{
+      "KomutAdi":"git add *",
+      "Islevi":"Tüm dosyayı indexe ekler"
+    },{
+      "KomutAdi":"git commit -m \" Teslim mesajı \" ",
+      "Islevi":"Yollayacağınız dosyalara mesaj eklersiniz"
+    },{
+      "KomutAdi":"git push origin master",
+      "Islevi":"Uzak depoya indexe eklediğiniz dosyaları yollar"
+    },{
+      "KomutAdi":"git checkout -b yenidalAdi",
+      "Islevi":"Yeni bir dal oluşturur"
+    },{
+      "KomutAdi":"git checkout master",
+      "Islevi":"Master dalına geri dönersin"
+    },{
+      "KomutAdi":"git branch -d dalAdı",
+      "Islevi":"Dalı siler"
+    },{
+      "KomutAdi":"git push origin dalAdı",
+      "Islevi":"Yaptığınız değişiklikleri dala yollar"
+    },{
+      "KomutAdi":"git pull",
+      "Islevi":"En son değişiklikleri çekersiniz"
+    },{
+      "KomutAdi":"git merge dalAdı",
+      "Islevi":"Başka bir dal ile birleştirmek için kullanılır"
     }
   ],
 

@@ -27,7 +27,7 @@ import hsmnzaydn.serkanozaydin.net.Veritabanı;
  * Created by hsmnzaydn on 16.06.2017.
  */
 
-public class KategoriReycliviewFragment extends Fragment implements SearchView.OnQueryTextListener {
+public class KategoriReycliviewFragment extends Fragment {
     private View root;
     private RecyclerView Kategoriler;
     private List<Kategori> kategoriList=new ArrayList<Kategori>();
@@ -47,10 +47,12 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
             kategoriList.add(new Kategori("Ağ Komutları"));
             kategoriList.add(new Kategori("İzin Komutları"));
             kategoriList.add(new Kategori("Sistem Komutları"));
+            kategoriList.add(new Kategori("Git Komutları"));
             kategoriList.add(new Kategori("Pacman Komutları"));
             kategoriList.add(new Kategori("Milis Linux Komutları"));
             kategoriList.add(new Kategori("Fux Project Komutları"));
             kategoriList.add(new Kategori("Benim Komutlarım"));
+
 
 
         }
@@ -63,6 +65,7 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
             kategoriList.add(new Kategori("Ağ Komutları"));
             kategoriList.add(new Kategori("İzin Komutları"));
             kategoriList.add(new Kategori("Sistem Komutları"));
+            kategoriList.add(new Kategori("Git Komutları"));
             kategoriList.add(new Kategori("Pacman Komutları"));
             kategoriList.add(new Kategori("Milis Linux Komutları"));
             kategoriList.add(new Kategori("Fux Project Komutları"));
@@ -100,30 +103,8 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
     public void init(){
         Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_kategori_basliklari);
     }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.drawer, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setOnQueryTextListener(this);
-        searchView.setQueryHint("Search");
 
-        super.onCreateOptionsMenu(menu, inflater);
 
-        super.onCreateOptionsMenu(menu, inflater);
-    }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
-    }
 }

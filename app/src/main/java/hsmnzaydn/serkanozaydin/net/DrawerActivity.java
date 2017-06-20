@@ -1,5 +1,6 @@
 package hsmnzaydn.serkanozaydin.net;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -59,7 +60,7 @@ private FragmentManager fragmentManager;
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 KomutEkleFragment fragment = new KomutEkleFragment();
                 transaction.replace(R.id.container, fragment, "deneme");
-                transaction.setCustomAnimations(R.anim.fragmentacilisi,R.anim.fragmentkapanisi);
+                transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -110,6 +111,7 @@ private FragmentManager fragmentManager;
         // Inflate the menu; this adds items to the action bar if it is present.
         //getMenuInflater().inflate(R.menu.drawer,menu);
 
+
         return true;
     }
     @Override
@@ -150,15 +152,35 @@ private FragmentManager fragmentManager;
             startActivity(Intent.createChooser(intent, "Send Email"));
 
         }else if (id == R.id.nav_share) {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+
+            shareIntent.setType("text/plain");
+
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=hsmnzaydn.serkanozaydin.net");
+
+            startActivity(Intent.createChooser(shareIntent, "Terminal komutları"));
 
         } else if (id == R.id.oyla) {
+            Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
+            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
 
+            goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+            try {
+                startActivity(goToMarket);
+            } catch (ActivityNotFoundException e) {
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://play.google.com/store/apps/details?id=" + getApplication().getPackageName())));
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
 
 
