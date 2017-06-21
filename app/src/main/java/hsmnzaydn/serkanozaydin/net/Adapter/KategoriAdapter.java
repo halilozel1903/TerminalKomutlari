@@ -182,7 +182,7 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
     public void setFilter(ArrayList<Kategori> newList){
 
         liste_kategori=new ArrayList<>();
-        liste_kategori.addAll(newList);
+        liste_kategori.addAll(newList );
         notifyDataSetChanged();
     }
 

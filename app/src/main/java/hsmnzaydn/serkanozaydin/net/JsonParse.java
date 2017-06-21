@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hsmnzaydn.serkanozaydin.net.Adapter.KomutAdapter;
+import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,13 +25,12 @@ import java.io.IOException;
 public class JsonParse {
     private List<Komut> komutlar =new ArrayList<Komut>();
     private Context context;
-    private RecyclerView recyclerView;
     private String cekilecekVeriler;
 
 
-    public JsonParse(Context context, RecyclerView recyclerView,String cekilecekVeriler){
+    public JsonParse(Context context,String cekilecekVeriler){
         this.setContext(context);
-        this.recyclerView=recyclerView;
+
         this.cekilecekVeriler=cekilecekVeriler;
 
     }
@@ -52,7 +52,7 @@ public class JsonParse {
     }
 
 
-    public void KomutlariCek(){
+    public List<Komut> KomutlariCek(){
         InputStream is=context.getResources().openRawResource(R.raw.veriler);
 
         try {
@@ -77,13 +77,6 @@ public class JsonParse {
                 komutlar.add(new Komut(komutBasligi,komutIcerigi));
             }
 
-            KomutAdapter adapter=new KomutAdapter(komutlar,getContext());
-
-            recyclerView.setHasFixedSize(true);
-
-            recyclerView.setAdapter(adapter);
-
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -97,7 +90,7 @@ public class JsonParse {
 
 
 
-
+return komutlar;
 
     }
 

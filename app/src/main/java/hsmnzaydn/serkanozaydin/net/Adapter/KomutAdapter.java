@@ -4,6 +4,7 @@ import android.content.Context;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 import hsmnzaydn.serkanozaydin.net.R;
 
@@ -23,7 +26,6 @@ import hsmnzaydn.serkanozaydin.net.R;
 
 public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
 
-    //Hüseyin Serkan Özaydin:Kurucu yöntem
     private Context context;
     private List<Komut> liste_komut;
 
@@ -42,7 +44,6 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
         private TextView komutIcerigi;
 
 
-        //Hüseyin Serkan Özaydin:Cardviewdeki veriler ile classtaki verileri baplıyoruz
         public ViewHolder(View view) {
             super(view);
 
@@ -64,7 +65,6 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
         return view_holder;
     }
 
-    //Hüseyin Serkan Özaydin:Listenin verilerini belirlediğimiz yer ve duyurunun linkini DuyurugösterFragmente yolladığımız kısım
     @Override
     public void onBindViewHolder(KomutAdapter.ViewHolder holder, final int position) {
         Komut komut= liste_komut.get(position);
@@ -77,12 +77,20 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
+
         return liste_komut.size();
     }
 
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
+    }
+
+    public void setFilter(ArrayList<Komut> newList){
+
+        liste_komut=new ArrayList<>();
+        liste_komut.addAll(newList );
+        notifyDataSetChanged();
     }
 
 

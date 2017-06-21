@@ -3,6 +3,7 @@ package hsmnzaydn.serkanozaydin.net.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,11 +28,12 @@ import hsmnzaydn.serkanozaydin.net.Veritabanı;
  * Created by hsmnzaydn on 16.06.2017.
  */
 
-public class KategoriReycliviewFragment extends Fragment {
+public class KategoriReycliviewFragment extends Fragment implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
     private View root;
     private RecyclerView Kategoriler;
     private List<Kategori> kategoriList=new ArrayList<Kategori>();
     private KategoriAdapter adapter;
+
 
 
     @Nullable
@@ -104,7 +106,59 @@ public class KategoriReycliviewFragment extends Fragment {
         Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_kategori_basliklari);
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        setHasOptionsMenu(true);
 
 
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.drawer, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint("Ara...");
+
+        super.onCreateOptionsMenu(menu, inflater);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+       newText=newText.toLowerCase();
+        ArrayList<Kategori> newList=new ArrayList<>();
+        for(Kategori kategori:kategoriList){
+            String name=kategori.getKategoriBasligi().toLowerCase();
+            if(name.contains(newText))
+            newList.add(kategori);
+        }
+
+        adapter.setFilter(newList);
+
+        return true;
+    }
+    @Override
+    public boolean onMenuItemActionExpand(MenuItem item) {
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemActionCollapse(MenuItem item) {
+        return true;
+    }
+
+    public interface OnItem1SelectedListener {
+        void OnItem1SelectedListener(String item);
+    }
 
 }

@@ -87,14 +87,13 @@ public class Veritabanı extends SQLiteOpenHelper {
     }
 
 
-    public void TumKayitlariGetir() {
+    public List<Komut> TumKayitlariGetir() {
 
         SQLiteDatabase db=this.getReadableDatabase();
 
         String [] sutunlar=new String[]{BASLIK,ACIKLAMA};
 
         Cursor c=db.query(TABLE_NAME, sutunlar, null, null, null, null, null);
-        //Cursor cursor=db.rawQuery("SELECT * FROM "+TABLE_NAME,null);
         int basliksirano=c.getColumnIndex(BASLIK);
         int aciklamasirano=c.getColumnIndex(ACIKLAMA);
 
@@ -111,17 +110,11 @@ public class Veritabanı extends SQLiteOpenHelper {
 
         }
 
-        KomutAdapter adapter=new KomutAdapter(komutlar,getContext());
 
-        recyclerView.setHasFixedSize(true);
-
-        recyclerView.setAdapter(adapter);
-
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         db.close();
 
-
+        return komutlar;
 
 
     }
