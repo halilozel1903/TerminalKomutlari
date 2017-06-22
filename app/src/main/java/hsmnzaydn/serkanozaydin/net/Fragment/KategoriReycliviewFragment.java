@@ -1,8 +1,13 @@
 package hsmnzaydn.serkanozaydin.net.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +19,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +41,10 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
     private RecyclerView Kategoriler;
     private List<Kategori> kategoriList=new ArrayList<Kategori>();
     private KategoriAdapter adapter;
+    private ImageButton actionButton;
+    private FragmentManager fragmentManager;
+
+
 
 
 
@@ -106,6 +118,23 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
 
     public void init(){
         Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_kategori_basliklari);
+
+        actionButton= (ImageButton) root.findViewById(R.id.ActionButton);
+
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentManager = ((FragmentActivity)getContext()).getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                KomutEkleFragment fragment = new KomutEkleFragment();
+                transaction.replace(R.id.container, fragment, "deneme");
+                transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
     }
 
     @Override

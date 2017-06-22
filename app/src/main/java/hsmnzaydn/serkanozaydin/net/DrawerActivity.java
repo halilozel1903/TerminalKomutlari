@@ -38,9 +38,8 @@ public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 private FragmentManager fragmentManager;
 
-    private FloatingActionButton fabplus,fabekle,fabcikar;
-    private Animation FabOpen,FabClose,FabRClockwisw,FabRanticlockwise;
-    private boolean isOpen=false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,72 +52,6 @@ private FragmentManager fragmentManager;
         KategoriReycliviewFragment fragment=new KategoriReycliviewFragment();
         transaction.replace(R.id.container,fragment,"deneme");
         transaction.commit();
-
-        fabplus= (FloatingActionButton) findViewById(R.id.fabplus);
-        fabekle= (FloatingActionButton) findViewById(R.id.fabekle);
-        fabcikar= (FloatingActionButton) findViewById(R.id.fabcikar);
-
-
-
-        FabOpen= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
-        FabClose= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
-        FabRClockwisw= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
-        FabRanticlockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
-
-
-        fabplus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isOpen){
-
-                    fabekle.startAnimation(FabClose);
-                    fabcikar.startAnimation(FabClose);
-                    fabplus.startAnimation(FabRanticlockwise);
-                    fabekle.setClickable(false);
-                    fabcikar.setClickable(false);
-                    isOpen=false;
-
-
-                }
-                else {
-                    fabekle.startAnimation(FabOpen);
-                    fabcikar.startAnimation(FabOpen);
-                    fabplus.startAnimation(FabRClockwisw);
-                    fabekle.setClickable(true);
-                    fabcikar.setClickable(true);
-                    isOpen=true;
-
-                }
-            }
-        });
-
-        fabekle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fragmentManager = getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                KomutEkleFragment fragment = new KomutEkleFragment();
-                transaction.replace(R.id.container, fragment, "deneme");
-                transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
-        });
-
-        fabcikar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-
-                shareIntent.setType("text/plain");
-
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=hsmnzaydn.serkanozaydin.net");
-
-                startActivity(Intent.createChooser(shareIntent, "Terminal komutları"));
-
-            }
-        });
-
 
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

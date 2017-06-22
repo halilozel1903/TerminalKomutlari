@@ -1,9 +1,14 @@
 package hsmnzaydn.serkanozaydin.net.Fragment;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +19,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.google.gson.Gson;
 
@@ -38,6 +45,7 @@ public class KomutReycliviewFragment extends Fragment implements SearchView.OnQu
     private RecyclerView Komutlar;
     private List<Komut> liste_komut;
     private KomutAdapter adapter;
+ 
 
 
 
@@ -89,6 +97,7 @@ public class KomutReycliviewFragment extends Fragment implements SearchView.OnQu
     public void init(){
         Komutlar= (RecyclerView) root.findViewById(R.id.reycliview_fragment_komut_basliklari);
 
+      
     }
 
 
