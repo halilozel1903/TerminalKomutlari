@@ -55,8 +55,15 @@
   }
 ,
   {
-    "KomutAdi":"rm -rf dizin",
-    "Islevi":"Dizini kaldırmaya zorlar"
+    "KomutAdi":"rm *",
+    "Islevi":"Bütün dosyaları siler"
+  },
+  {
+    "KomutAdi":"rm a*",
+    "Islevi":"a ile başlayan tüm dosyaları siler"
+  },{
+    "KomutAdi":"rm bet*as",
+    "Islevi":"bet ile başlayıp as ile biten tüm dosyaları siler"
   },
   {
     "KomutAdi":"cp dosyaA dosyaB",
@@ -93,6 +100,10 @@
   {
     "KomutAdi":"less text",
     "Islevi":"Text dosyasının içeriğini çıktılar"
+  },
+  {
+    "KomutAdi":"comm DosyaA DosyaB",
+    "Islevi":"Iki dosyayi satir satir karsilastırır."
   }
 
 ],
@@ -302,9 +313,6 @@
       "KomutAdi":"fingure kullanıcıadı",
       "Islevi":"Kullanıcı adının bilgilerini gösterir"
     },{
-      "KomutAdi":"uname -a",
-      "Islevi":"Kernel bilgilerini gösterir"
-    },{
       "KomutAdi":"cat /proc/cpuinfo",
       "Islevi":"CPU bilgilerini gösterir"
     },{
@@ -331,7 +339,47 @@
     },{
       "KomutAdi":"sensors",
       "Islevi":"CPU sıcaklıklarını gösterir"
+    },{
+      "KomutAdi":"uname -harf",
+      "Islevi":"-m Makinanın donanımının adını verir.\n-n Nodename i yazar. Nodename sistemin network iletişimi için kullanılır.\n-r Kernel sürümünü gösterir\n-s Sistem ismini yazar\n-v İşletim sisteminin versiyonuu yazar\n-a yukarıdaki bilgilerin tamamını yazar"
+    },{
+      "KomutAdi":"alias",
+      "Islevi":"Bir komuta için kisayollar yaratır"
+    },{
+      "KomutAdi":"dd",
+      "Islevi":"Disk içeriklerini kopyalamak için kullanılır"
+    },{
+      "KomutAdi":"shutdown",
+      "Islevi":"Sistemi kapatmak için kullanılır"
+    },{
+      "KomutAdi":"apropos",
+      "Islevi":"Belli bir kelimeyi man sayfalarinda arar."
+    },{
+      "KomutAdi":"chfn",
+      "Islevi":"Finger bilgilerinde değişiklik yap"
+    },{
+      "KomutAdi":"chgrp",
+      "Islevi":"Grup değiştir"
+    },{
+      "KomutAdi":"clear",
+      "Islevi":"Monitörü temizler"
+    },{
+      "KomutAdi":"continue",
+      "Islevi":"Bir bloku belli bir kosuldan sonra terk etme ve kaldigin yerden devam eder. "
+    },{
+      "KomutAdi":"deluser kullanıcı",
+      "Islevi":"Kullanıcıyı sil "
+    },{
+      "KomutAdi":"delgroup grup",
+      "Islevi":"Grubu sil "
+    },{
+      "KomutAdi":"groupadd grup",
+      "Islevi":"Yeni bir grup oluştur "
+    },{
+      "KomutAdi":"halt",
+      "Islevi":"Sistemi durdur "
     }
+
   ],
   "İzin Komutları":[
     {
@@ -341,6 +389,17 @@
       "KomutAdi":"chmod -w dosya",
       "Islevi":"Dosyaya yazma izni verir"
     },{
+      "KomutAdi":"chmod u+rw dosya",
+      "Islevi":"Bununla sahip (bu genellikle sizsiniz), my dosyası üzerinde okuma ve yazma iznine sahip olur."
+    },
+    {
+      "KomutAdi":"chmod a-x dosya",
+      "Islevi":"bununla tüm kullanıcıların (siz ve sahip dahil) directory dizinine konuk olma izinlerini kaldırıyoruz."
+    },{
+      "KomutAdi":"chmod u+rw dosya",
+      "Islevi":"Bununla sahip (bu genellikle sizsiniz), my dosyası üzerinde okuma ve yazma iznine sahip olur."
+    },
+    {
       "KomutAdi":"chmod -x dosya",
       "Islevi":"Dosyaya çalıştırma izni verir"
     },{
@@ -400,6 +459,50 @@
       "KomutAdi":"git merge dalAdı",
       "Islevi":"Başka bir dal ile birleştirmek için kullanılır"
     }
+  ],
+
+  "APT Komutları":[
+    {
+      "KomutAdi":"apt-get update",
+      "Islevi":"Uygun durumdaki güncellemeleri yeniler."
+    }, {
+      "KomutAdi":"apt-get upgrade",
+      "Islevi":"Tüm paketleri upgrade eder. (en üst sürüme yükseltir)"
+    }, {
+      "KomutAdi":"apt-get dist-upgrade",
+      "Islevi":"Debian versiyonunu yükseltir."
+    }, {
+      "KomutAdi":"apt-get install paketadı",
+      "Islevi":"Paketi yükler"
+    }, {
+      "KomutAdi":"apt-get install paket1 paket2 paket3 paket4 paket5 paket6 ...",
+      "Islevi":"Birden çok paket kurar."
+    },{
+      "KomutAdi":"sudo apt-get purge paket_adı",
+      "Islevi":"Kurulu bir paketi yapılandırma dosyaları ile beraber kaldırır."
+    },{
+      "KomutAdi":"apt-get remove paketadı",
+      "Islevi":"Paketi siler"
+    }, {
+      "KomutAdi":"apt-get autoremove",
+      "Islevi":"Eski paketleri siler"
+    }, {
+      "KomutAdi":"apt-get -f install",
+      "Islevi":"Hatalı paketleri tamir etmeye çalışır"
+    },{
+      "KomutAdi":"dpkg -i paket.deb",
+      "Islevi":"Paket.deb dosyasını yükler"
+    },{
+      "KomutAdi":"sudo add-apt-repository yeni_deponun_PPA_adresi",
+      "Islevi":"Yeni bir depo ekler"
+    },{
+      "KomutAdi":"sudo apt-cache show paket_adı",
+      "Islevi":"Program hakkında bilgi verir"
+    },{
+      "KomutAdi":"apt-get help",
+      "Islevi":"Apt komutu hakkında bilgi verir"
+    }
+
   ],
 
   "Pacman Komutları":[

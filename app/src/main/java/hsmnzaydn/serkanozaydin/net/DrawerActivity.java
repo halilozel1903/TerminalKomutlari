@@ -23,6 +23,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -35,14 +37,16 @@ import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 private FragmentManager fragmentManager;
-    private ImageButton actionButton;
+
+    private FloatingActionButton fabplus,fabekle,fabcikar;
+    private Animation FabOpen,FabClose,FabRClockwisw,FabRanticlockwise;
+    private boolean isOpen=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        actionButton= (ImageButton) findViewById(R.id.ActionButton);
 
         fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
@@ -50,12 +54,47 @@ private FragmentManager fragmentManager;
         transaction.replace(R.id.container,fragment,"deneme");
         transaction.commit();
 
-        actionButton.setOnClickListener(new View.OnClickListener() {
+        fabplus= (FloatingActionButton) findViewById(R.id.fabplus);
+        fabekle= (FloatingActionButton) findViewById(R.id.fabekle);
+        fabcikar= (FloatingActionButton) findViewById(R.id.fabcikar);
+
+
+
+        FabOpen= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
+        FabClose= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
+        FabRClockwisw= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
+        FabRanticlockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
+
+
+        fabplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (isOpen){
+
+                    fabekle.startAnimation(FabClose);
+                    fabcikar.startAnimation(FabClose);
+                    fabplus.startAnimation(FabRanticlockwise);
+                    fabekle.setClickable(false);
+                    fabcikar.setClickable(false);
+                    isOpen=false;
 
 
+                }
+                else {
+                    fabekle.startAnimation(FabOpen);
+                    fabcikar.startAnimation(FabOpen);
+                    fabplus.startAnimation(FabRClockwisw);
+                    fabekle.setClickable(true);
+                    fabcikar.setClickable(true);
+                    isOpen=true;
 
+                }
+            }
+        });
+
+        fabekle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 KomutEkleFragment fragment = new KomutEkleFragment();
@@ -66,6 +105,19 @@ private FragmentManager fragmentManager;
             }
         });
 
+        fabcikar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+
+                shareIntent.setType("text/plain");
+
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=hsmnzaydn.serkanozaydin.net");
+
+                startActivity(Intent.createChooser(shareIntent, "Terminal komutları"));
+
+            }
+        });
 
 
 

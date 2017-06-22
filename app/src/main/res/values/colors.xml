@@ -2,8 +2,13 @@
 <resources>
     <color name="colorPrimary">#bfb4bf</color>
     <color name="colorPrimaryDark">#bfbfbf</color>
-    <color name="colorAccent">#FF4081</color>
     <color name="DrawerBackground">#b4b4bf</color>
     <color name="KomutBasliklari">#7575f5</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="fab1_color">#4CAF50</color>
+    <color name="fab2_color">#2196f3</color>
+
+
+
 
 </resources>

@@ -130,6 +130,9 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
         if(kategori.getKategoriBasligi().equals("Git Komutları")){
             holder.kategoriResmi.setImageResource(R.drawable.git);
 
+        }if(kategori.getKategoriBasligi().equals("APT Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.apt);
+
         }
 
         holder.rel.setOnClickListener(new View.OnClickListener() {
