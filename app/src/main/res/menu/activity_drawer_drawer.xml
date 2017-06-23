@@ -3,6 +3,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/ekle"
+            android:icon="@drawable/ic_action_icon"
+            android:title="Komut Ekle" />
+        <item
             android:id="@+id/other"
             android:icon="@drawable/ic_action_googleplay"
             android:title="Diğer Uygulamalar" />

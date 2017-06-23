@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hsmnzaydn.serkanozaydin.net.Fragment.KomutReycliviewFragment;
+import hsmnzaydn.serkanozaydin.net.Fragment.onlineKomutlarReycliviewFragment;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
 import hsmnzaydn.serkanozaydin.net.R;
 
@@ -133,6 +134,9 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
         }if(kategori.getKategoriBasligi().equals("APT Komutları")){
             holder.kategoriResmi.setImageResource(R.drawable.apt);
 
+        }if(kategori.getKategoriBasligi().equals("Online Komutlar")){
+            holder.kategoriResmi.setImageResource(R.drawable.sync);
+
         }
 
         holder.rel.setOnClickListener(new View.OnClickListener() {
@@ -149,15 +153,26 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
                 editor.putString("key", json);
                 editor.commit();
 
+                if(kategori.getKategoriBasligi().equals("Online Komutlar")){
+                    fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    onlineKomutlarReycliviewFragment fragment = new onlineKomutlarReycliviewFragment();
+                    transaction.replace(R.id.container, fragment, "deneme");
+                    transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+                else {
 
 
-                fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                KomutReycliviewFragment fragment = new KomutReycliviewFragment();
-                transaction.replace(R.id.container, fragment, "deneme");
-                transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                    fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    KomutReycliviewFragment fragment = new KomutReycliviewFragment();
+                    transaction.replace(R.id.container, fragment, "deneme");
+                    transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
 
             }
         });

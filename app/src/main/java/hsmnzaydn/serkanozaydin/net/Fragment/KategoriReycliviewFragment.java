@@ -67,6 +67,7 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
             kategoriList.add(new Kategori("Milis Linux Komutları"));
             kategoriList.add(new Kategori("Fux Project Komutları"));
             kategoriList.add(new Kategori("Benim Komutlarım"));
+            kategoriList.add(new Kategori("Online Komutlar"));
 
 
 
@@ -86,6 +87,7 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
             kategoriList.add(new Kategori("Milis Linux Komutları"));
             kategoriList.add(new Kategori("Fux Project Komutları"));
             kategoriList.add(new Kategori("Benim Komutlarım"));
+            kategoriList.add(new Kategori("Online Komutlar"));
         }
 
 

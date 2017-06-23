@@ -145,7 +145,18 @@ private FragmentManager fragmentManager;
 
             startActivity(Intent.createChooser(shareIntent, "Terminal komutları"));
 
-        } else if (id == R.id.oyla) {
+        }
+        else if (id == R.id.ekle) {
+            fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            KomutEkleFragment fragment = new KomutEkleFragment();
+            transaction.replace(R.id.container, fragment, "deneme");
+            transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+        }
+        else if (id == R.id.oyla) {
             Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
             Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
 
