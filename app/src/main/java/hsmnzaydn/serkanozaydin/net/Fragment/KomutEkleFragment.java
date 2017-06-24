@@ -26,6 +26,7 @@ public class KomutEkleFragment extends Fragment{
     private View root;
     private EditText kod,aciklama,onlineKod,onlineAciklama,onlineKategori;
     private Button ekle,onlineEkle;
+    private String tarih;
 
 
     @Nullable
@@ -57,10 +58,8 @@ public class KomutEkleFragment extends Fragment{
                 String komut=onlineKod.getText().toString();
                 String aciklama=onlineAciklama.getText().toString();
                 String kategori=onlineKategori.getText().toString();
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                Calendar cal = Calendar.getInstance();
-                String tarih=dateFormat.format(cal.getTime());
-                connect.VeriKaydet(komut,aciklama,tarih,kategori);
+
+                connect.VeriKaydet(komut,aciklama,"",kategori);
 
                 onlineKod.setText("");
                 onlineAciklama.setText("");

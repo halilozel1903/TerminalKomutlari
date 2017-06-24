@@ -37,6 +37,7 @@ public class MysqlConnect  {
     private String url_veriGonder="http://www.serkanozaydin.net/baglanti/veriGonder.php";
     private Context context;
     private RecyclerView recyclerView;
+    private Map<String,String> params;
 
 
 
@@ -152,12 +153,18 @@ public class MysqlConnect  {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
 
-                Map<String,String> params=new HashMap<String,String>();
+                try {
+                    params=new HashMap<String,String>();
 
-                params.put("komut", komut.toString());
-                params.put("komut_icerigi", komut_icerigi.toString());
-                params.put("tarih", tarih.toString());
-                params.put("kategori", kategori.toString());
+                    params.put("komut", komut.toString());
+                    params.put("komut_icerigi", komut_icerigi.toString());
+                    params.put("tarih", tarih.toString());
+                    params.put("kategori", kategori.toString());
+                }
+                catch (Exception e){
+
+                }
+
 
 
                 return params;
