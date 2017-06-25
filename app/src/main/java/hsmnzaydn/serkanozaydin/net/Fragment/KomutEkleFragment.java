@@ -1,20 +1,17 @@
 package hsmnzaydn.serkanozaydin.net.Fragment;
 
-import android.icu.text.DateFormat;
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.Calendar;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import com.spark.submitbutton.SubmitButton;
 
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
-import hsmnzaydn.serkanozaydin.net.MysqlConnect;
 import hsmnzaydn.serkanozaydin.net.R;
 import hsmnzaydn.serkanozaydin.net.Veritabanı;
 
@@ -24,9 +21,9 @@ import hsmnzaydn.serkanozaydin.net.Veritabanı;
 
 public class KomutEkleFragment extends Fragment{
     private View root;
-    private EditText kod,aciklama,onlineKod,onlineAciklama,onlineKategori;
-    private Button ekle,onlineEkle;
-    private String tarih;
+    private EditText kod,aciklama;
+    private SubmitButton ekle;
+
 
 
     @Nullable
@@ -47,27 +44,13 @@ public class KomutEkleFragment extends Fragment{
 
                 kod.setText("");
                 aciklama.setText("");
-                Toast.makeText(getContext(),"Kodunuz Benim Komutlarım kategorisine eklendi",Toast.LENGTH_SHORT).show();
+
+
+
             }
         });
 
-        onlineEkle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MysqlConnect connect=new MysqlConnect(getContext());
-                String komut=onlineKod.getText().toString();
-                String aciklama=onlineAciklama.getText().toString();
-                String kategori=onlineKategori.getText().toString();
 
-                connect.VeriKaydet(komut,aciklama,"",kategori);
-
-                onlineKod.setText("");
-                onlineAciklama.setText("");
-                onlineKategori.setText("");
-
-                Toast.makeText(getContext(),"Terminal komutunuz yollandı moderatörün onayı için bekleniyor",Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
 
@@ -77,11 +60,8 @@ public class KomutEkleFragment extends Fragment{
     public void init(){
         kod= (EditText) root.findViewById(R.id.fragment_komut_ekle_kod_EditText);
         aciklama= (EditText) root.findViewById(R.id.fragment_komut_ekle_aciklama_EditText);
-        ekle= (Button) root.findViewById(R.id.fragment_komut_ekle_ekle_button);
-        onlineKod= (EditText) root.findViewById(R.id.fragment_komut_ekle_onlinekod_EditText);
-        onlineAciklama= (EditText) root.findViewById(R.id.fragment_komut_ekle_onlineaciklama_EditText);
-        onlineKategori= (EditText) root.findViewById(R.id.fragment_komut_ekle_onlinekategori_EditText);
-        onlineEkle= (Button) root.findViewById(R.id.fragment_komut_ekle_onlineekle_button);
+        ekle= (SubmitButton) root.findViewById(R.id.fragment_komut_ekle_ekle_button);
+
 
     }
 }

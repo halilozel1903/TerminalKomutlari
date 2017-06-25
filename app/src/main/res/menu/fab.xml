@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+
+    <item
+        android:id="@+id/paylas"
+        android:icon="@drawable/ic_menu_share"
+        android:title="Paylaş"
+        />
+    <item
+        android:id="@+id/yerel_ekle"
+        android:icon="@drawable/ic_action_icon"
+        android:title="Yerel Komut Ekle"
+        />
+
+    <item
+        android:id="@+id/online_ekle"
+        android:icon="@drawable/ic_action_cloudupload"
+        android:title="Online Komut Ekle"
+        />
+
+</menu>

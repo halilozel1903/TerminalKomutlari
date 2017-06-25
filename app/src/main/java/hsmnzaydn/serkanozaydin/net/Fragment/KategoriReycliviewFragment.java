@@ -3,6 +3,7 @@ package hsmnzaydn.serkanozaydin.net.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,7 @@ import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 import hsmnzaydn.serkanozaydin.net.R;
 import hsmnzaydn.serkanozaydin.net.Veritabanı;
+import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 /**
  * Created by hsmnzaydn on 16.06.2017.
@@ -41,8 +44,8 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
     private RecyclerView Kategoriler;
     private List<Kategori> kategoriList=new ArrayList<Kategori>();
     private KategoriAdapter adapter;
-    private ImageButton actionButton;
     private FragmentManager fragmentManager;
+    private FabSpeedDial actionButton;
 
 
 
@@ -52,6 +55,56 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root=inflater.inflate(R.layout.fragment_kategori_reycliview,container,false);
+        init();
+        actionButton.setMenuListener(new FabSpeedDial.MenuListener() {
+            @Override
+            public boolean onPrepareMenu(NavigationMenu navigationMenu) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemSelected(MenuItem menuItem) {
+
+                switch (menuItem.getItemId()){
+                    case R.id.yerel_ekle:
+                        fragmentManager = ((FragmentActivity)getContext()).getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        KomutEkleFragment fragment = new KomutEkleFragment();
+                        transaction.replace(R.id.container, fragment, "deneme");
+                        transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                        break;
+                    case R.id.online_ekle:
+                        fragmentManager = ((FragmentActivity)getContext()).getSupportFragmentManager();
+                        FragmentTransaction transaction2 = fragmentManager.beginTransaction();
+                        onlineKomutEkleFragment fragment2 = new onlineKomutEkleFragment();
+                        transaction2.replace(R.id.container, fragment2, "deneme");
+                        transaction2.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                        transaction2.addToBackStack(null);
+                        transaction2.commit();
+                        break;
+                    case R.id.paylas:
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+
+                        shareIntent.setType("text/plain");
+
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=hsmnzaydn.serkanozaydin.net");
+
+                        startActivity(Intent.createChooser(shareIntent, "Terminal komutları"));
+
+
+                }
+                return true;
+            }
+
+            @Override
+            public void onMenuClosed() {
+
+            }
+        });
+
+
         Veritabanı db=new Veritabanı(getContext());
         if(kategoriList.size()==0) {
             kategoriList.add(new Kategori("Dosya Komutları"));
@@ -92,7 +145,7 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
 
 
 
-        init();
+
 
 
 
@@ -120,22 +173,8 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
 
     public void init(){
         Kategoriler= (RecyclerView) root.findViewById(R.id.reycliview_fragment_kategori_basliklari);
+        actionButton= (FabSpeedDial) root.findViewById(R.id.reycliview_fragment_kategori_actionButton);
 
-        actionButton= (ImageButton) root.findViewById(R.id.ActionButton);
-
-        actionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fragmentManager = ((FragmentActivity)getContext()).getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                KomutEkleFragment fragment = new KomutEkleFragment();
-                transaction.replace(R.id.container, fragment, "deneme");
-                transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                transaction.addToBackStack(null);
-                transaction.commit();
-
-            }
-        });
 
     }
 

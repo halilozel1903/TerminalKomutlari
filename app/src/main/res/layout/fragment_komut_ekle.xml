@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 <ScrollView
     android:layout_width="match_parent"
@@ -48,74 +49,21 @@
         android:gravity="center"
             android:id="@+id/fragment_komut_ekle_aciklama_EditText"
             />
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+    <com.spark.submitbutton.SubmitButton
+        android:id="@+id/fragment_komut_ekle_ekle_button"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:layout_gravity="center"
         android:text="Ekle"
-        android:id="@+id/fragment_komut_ekle_ekle_button"
-
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:sub_btn_background="@android:color/white"
+        app:sub_btn_duration="3000"
+        app:sub_btn_ripple_color="#008000"
+        app:sub_btn_tick_color="#FFFFFF"/>
 </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="Online Komut Ekle"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="*Eklediğiniz bu kodlar havuza gidip moderatör onayından geçtikten sonra ONLİNE KOMUTLAR kategorisinde gözükür"
-            android:textColor="@color/kirmizi"
-            />
-
-
-        <EditText
-            android:hint="Kodunuz"
-            android:layout_marginTop="10dp"
-            android:id="@+id/fragment_komut_ekle_onlinekod_EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center" />
-
-        <EditText
-            android:layout_marginTop="10dp"
-            android:hint="Açıklama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/fragment_komut_ekle_onlineaciklama_EditText"
-            />
-        <EditText
-            android:layout_marginTop="10dp"
-            android:hint="Kategori"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/fragment_komut_ekle_onlinekategori_EditText"
-            />
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:text="Ekle"
-            android:id="@+id/fragment_komut_ekle_onlineekle_button"
-
-            android:textStyle="bold"/>
-    </LinearLayout>
     </LinearLayout>
 </ScrollView>
 </LinearLayout>
