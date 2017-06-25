@@ -5,13 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import hsmnzaydn.serkanozaydin.net.Adapter.KomutAdapter;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 
 /**

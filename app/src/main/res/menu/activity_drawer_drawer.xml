@@ -5,14 +5,18 @@
         <item
             android:id="@+id/ekle"
             android:icon="@drawable/ic_action_icon"
-            android:title="Komut Ekle" />
+            android:title="Yerel Komut Ekle" />
+        <item
+            android:id="@+id/online_ekle"
+            android:icon="@drawable/ic_action_cloudupload"
+            android:title="Online Komut Ekle" />
         <item
             android:id="@+id/other"
             android:icon="@drawable/ic_action_googleplay"
             android:title="Diğer Uygulamalar" />
         <item
             android:id="@+id/bana_ulas"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_action_mail"
             android:title="Bana Ulaş" />
 
 

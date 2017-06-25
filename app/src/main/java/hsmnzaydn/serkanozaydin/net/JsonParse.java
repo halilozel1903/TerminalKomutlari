@@ -1,16 +1,13 @@
 package hsmnzaydn.serkanozaydin.net;
 
 import android.content.Context;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.Log;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import hsmnzaydn.serkanozaydin.net.Adapter.KomutAdapter;
-import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 import org.json.JSONArray;
 import org.json.JSONException;

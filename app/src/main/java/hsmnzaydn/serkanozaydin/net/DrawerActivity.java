@@ -5,14 +5,11 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
+
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
+
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,16 +20,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 
-import java.util.ArrayList;
 
 import hsmnzaydn.serkanozaydin.net.Fragment.KategoriReycliviewFragment;
 import hsmnzaydn.serkanozaydin.net.Fragment.KomutEkleFragment;
-import hsmnzaydn.serkanozaydin.net.Fragment.KomutReycliviewFragment;
-import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Kategori;
+import hsmnzaydn.serkanozaydin.net.Fragment.onlineKomutEkleFragment;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -154,6 +146,16 @@ private FragmentManager fragmentManager;
             transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             transaction.addToBackStack(null);
             transaction.commit();
+
+        }
+        else if (id == R.id.online_ekle) {
+            fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction2 = fragmentManager.beginTransaction();
+            onlineKomutEkleFragment fragment2 = new onlineKomutEkleFragment();
+            transaction2.replace(R.id.container, fragment2, "deneme");
+            transaction2.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            transaction2.addToBackStack(null);
+            transaction2.commit();
 
         }
         else if (id == R.id.oyla) {
