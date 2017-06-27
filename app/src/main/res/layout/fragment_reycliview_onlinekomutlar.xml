@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.gturedi.views.StatefulLayout android:id="@+id/stateful"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    app:stfAnimationEnabled="true"
+    app:stfInAnimation="@android:anim/slide_in_left"
+    app:stfOutAnimation="@android:anim/slide_out_right"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-
+    <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
+        android:id="@+id/swipyrefreshlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srl_direction="both">
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment_reycliview_onlinekomutlar_reycliview"></android.support.v7.widget.RecyclerView>
-
-</LinearLayout>
+    </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
+</com.gturedi.views.StatefulLayout>

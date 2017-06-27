@@ -7,8 +7,8 @@ android {
         applicationId "hsmnzaydn.serkanozaydin.net"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 10
-        versionName "2.1"
+        versionCode 11
+        versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,6 +34,9 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.18'
     compile 'io.github.yavski:fab-speed-dial:1.0.6'
     compile 'me.spark:submitbutton:1.0.1'
+    compile 'com.github.gturedi:stateful-layout:1.2.1'
+    compile 'com.github.orangegangsters:swipy:1.2.3@aar'
+
 
 
 }
