@@ -35,7 +35,6 @@ public class onlineKomutlarAdapter extends RecyclerView.Adapter<onlineKomutlarAd
 
         private TextView komutBasligi;
         private TextView komutIcerigi;
-        private TextView tarih;
         private TextView kategori;
 
 
@@ -44,7 +43,6 @@ public class onlineKomutlarAdapter extends RecyclerView.Adapter<onlineKomutlarAd
 
             komutBasligi = (TextView) view.findViewById(R.id.onlinekomut_satir_layout_komut_basligi);
             komutIcerigi = (TextView) view.findViewById(R.id.onlinekomut_satir_layout_komut_islevi);
-            tarih= (TextView) view.findViewById(R.id.onlinekomut_satir_layout_komut_tarih);
             kategori= (TextView) view.findViewById(R.id.onlinekomut_satir_layout_kategori);
 
 
@@ -67,7 +65,6 @@ public class onlineKomutlarAdapter extends RecyclerView.Adapter<onlineKomutlarAd
         onlineKomutlar komut= liste_komut.get(position);
         holder.komutBasligi.setText(komut.getKomut());
         holder.komutIcerigi.setText(komut.getKomutIcerigi());
-        holder.tarih.setText("Tarih:"+komut.getTarih());
         holder.kategori.setText(komut.getKategori());
 
 

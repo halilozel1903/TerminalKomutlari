@@ -36,7 +36,7 @@ init();
                 String aciklama=onlineAciklama.getText().toString();
                 String kategori=onlineKategori.getText().toString();
 
-                connect.VeriKaydet(komut,aciklama,"",kategori);
+                connect.VeriKaydet(komut,aciklama,kategori);
 
                 onlineKod.setText("");
                 onlineAciklama.setText("");

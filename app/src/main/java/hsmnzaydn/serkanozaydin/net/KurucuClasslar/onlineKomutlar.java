@@ -7,14 +7,12 @@ package hsmnzaydn.serkanozaydin.net.KurucuClasslar;
 public class onlineKomutlar {
     private String Komut;
     private String komutIcerigi;
-    private String tarih;
     private String kategori;
 
 
-    public onlineKomutlar(String Komut,String komutIcerigi,String tarih,String kategori){
+    public onlineKomutlar(String Komut,String komutIcerigi,String kategori){
         this.setKomut(Komut);
         this.setKomutIcerigi(komutIcerigi);
-        this.setTarih(tarih);
         this.setKategori(kategori);
     }
 
@@ -34,13 +32,7 @@ public class onlineKomutlar {
         this.komutIcerigi = komutIcerigi;
     }
 
-    public String getTarih() {
-        return tarih;
-    }
 
-    public void setTarih(String tarih) {
-        this.tarih = tarih;
-    }
 
     public String getKategori() {
         return kategori;
