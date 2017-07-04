@@ -114,7 +114,7 @@
   "Islevi":"Dosyanın bulunduğu dizindeki diğer dosyaları dizinler"
 },
     {
-      "KomutAdi":"find / -isim foo",
+      "KomutAdi":"find / -name foo",
       "Islevi":"Dosyaya verilen isim ile arama yapar"
     },
     {
@@ -383,10 +383,10 @@
   ],
   "İzin Komutları":[
     {
-  "KomutAdi":"chmod -r dosya",
+  "KomutAdi":"chmod +r dosya",
   "Islevi":"Dosyayı okuma izni verir"
 },{
-      "KomutAdi":"chmod -w dosya",
+      "KomutAdi":"chmod +w dosya",
       "Islevi":"Dosyaya yazma izni verir"
     },{
       "KomutAdi":"chmod u+rw dosya",
@@ -394,17 +394,17 @@
     },
     {
       "KomutAdi":"chmod a-x dosya",
-      "Islevi":"bununla tüm kullanıcıların (siz ve sahip dahil) directory dizinine konuk olma izinlerini kaldırıyoruz."
+      "Islevi":"Tüm kullanıcıların dosya üzerindeki çalıştırma izinlerini kaldırıyoruz."
     },{
       "KomutAdi":"chmod u+rw dosya",
       "Islevi":"Bununla sahip (bu genellikle sizsiniz), my dosyası üzerinde okuma ve yazma iznine sahip olur."
     },
     {
-      "KomutAdi":"chmod -x dosya",
+      "KomutAdi":"chmod +x dosya",
       "Islevi":"Dosyaya çalıştırma izni verir"
     },{
       "KomutAdi":"chmod 777 dosya",
-      "Islevi":"Dosyaya okuma,yazma ve çalıştırma izni verir"
+      "Islevi":"Dosyaya herkes için okuma, yazma ve çalıştırma izni verir."
     }
   ],
 
