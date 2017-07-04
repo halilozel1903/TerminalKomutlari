@@ -16,7 +16,6 @@ import com.gturedi.views.StatefulLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
-import hsmnzaydn.serkanozaydin.net.MysqlConnect;
 import hsmnzaydn.serkanozaydin.net.R;
 
 /**

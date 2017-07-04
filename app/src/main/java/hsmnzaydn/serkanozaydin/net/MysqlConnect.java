@@ -34,8 +34,8 @@ import hsmnzaydn.serkanozaydin.net.KurucuClasslar.onlineKomutlar;
 
 public class MysqlConnect  {
 
-    private String url_veriCek="";
-    private String url_veriGonder="";
+    private String url_veriCek="http://www.serkanozaydin.net/baglanti/veriCek.php";
+    private String url_veriGonder="http://www.serkanozaydin.net/baglanti/veriGonder.php";
     private Context context;
     private RecyclerView recyclerView;
     private Map<String,String> params;

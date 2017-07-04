@@ -2,7 +2,6 @@ package hsmnzaydn.serkanozaydin.net;
 
 import android.content.Context;
 
-import android.util.Log;
 
 import java.io.InputStream;
 import java.util.ArrayList;
