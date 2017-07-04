@@ -23,12 +23,20 @@ public class JsonParse {
     private List<Komut> komutlar =new ArrayList<Komut>();
     private Context context;
     private String cekilecekVeriler;
+    private String cekilecekVerilerArray[];
 
 
     public JsonParse(Context context,String cekilecekVeriler){
         this.setContext(context);
 
         this.cekilecekVeriler=cekilecekVeriler;
+
+    }
+
+    public JsonParse(Context context,String cekilecekVerilerArray[]){
+        this.setContext(context);
+
+        this.cekilecekVerilerArray=cekilecekVerilerArray;
 
     }
 
@@ -68,7 +76,6 @@ public class JsonParse {
 
                 String komutBasligi=object.getString("KomutAdi");
                 String komutIcerigi=object.getString("Islevi");
-                Log.i("deneme",komutBasligi);
 
 
                 komutlar.add(new Komut(komutBasligi,komutIcerigi));
@@ -92,6 +99,40 @@ return komutlar;
     }
 
 
+
+    public List<Komut> topluKomutlariCek(){
+        InputStream is=context.getResources().openRawResource(R.raw.veriler);
+
+        try {
+
+            byte buffer[]=new byte[is.available()];
+            while (is.read(buffer)!=-1);
+
+            String jsonVerisi=new String(buffer);
+            JSONObject jsonObject=new JSONObject(jsonVerisi);
+            for(int a=0;a<cekilecekVerilerArray.length;a++) {
+                JSONArray personel = jsonObject.getJSONArray(cekilecekVerilerArray[a].toString());
+
+                for (int i = 0; i < personel.length(); i++) {
+
+                    JSONObject object = personel.getJSONObject(i);
+
+                    String komutBasligi = object.getString("KomutAdi");
+                    String komutIcerigi = object.getString("Islevi");
+
+
+                    komutlar.add(new Komut(komutBasligi, komutIcerigi));
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+return komutlar;
+    }
 
 
 }

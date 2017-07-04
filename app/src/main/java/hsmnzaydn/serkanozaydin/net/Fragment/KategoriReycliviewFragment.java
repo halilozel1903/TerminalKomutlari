@@ -200,15 +200,15 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
 
     @Override
     public boolean onQueryTextChange(String newText) {
-       newText=newText.toLowerCase();
-        ArrayList<Kategori> newList=new ArrayList<>();
-        for(Kategori kategori:kategoriList){
-            String name=kategori.getKategoriBasligi().toLowerCase();
-            if(name.contains(newText))
-            newList.add(kategori);
-        }
+        fragmentManager = ((FragmentActivity)getContext()).getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+       SearchKomutlarReycliviewFragment fragment = new SearchKomutlarReycliviewFragment();
+        transaction.replace(R.id.container, fragment, "deneme");
+        transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        transaction.addToBackStack(null);
+        transaction.commit();
 
-        adapter.setFilter(newList);
+
 
         return true;
     }
