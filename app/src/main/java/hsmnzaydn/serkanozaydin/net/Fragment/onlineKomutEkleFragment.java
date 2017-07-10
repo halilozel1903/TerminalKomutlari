@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.spark.submitbutton.SubmitButton;
@@ -36,7 +37,14 @@ init();
                 String aciklama=onlineAciklama.getText().toString();
                 String kategori=onlineKategori.getText().toString();
 
-                connect.VeriKaydet(komut,aciklama,kategori);
+                if(!komut.trim().equals("") && !aciklama.trim().equals("") && !kategori.trim().equals("")){
+                    connect.VeriKaydet(komut,aciklama,kategori);
+
+                }
+                else {
+                    Toast.makeText(getContext(),"Lütfen tüm alanları doldurun",Toast.LENGTH_SHORT).show();
+                }
+
 
                 onlineKod.setText("");
                 onlineAciklama.setText("");

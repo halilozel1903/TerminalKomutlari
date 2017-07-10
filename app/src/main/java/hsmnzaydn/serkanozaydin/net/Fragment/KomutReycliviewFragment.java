@@ -40,6 +40,7 @@ public class KomutReycliviewFragment extends Fragment implements SearchView.OnQu
     private RecyclerView Komutlar;
     private List<Komut> liste_komut;
     private KomutAdapter adapter;
+    private Kategori kategori;
  
 
 
@@ -47,14 +48,16 @@ public class KomutReycliviewFragment extends Fragment implements SearchView.OnQu
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        root=inflater.inflate(R.layout.fragment_komut_reycliview,container,false);
-        init();
-
         SharedPreferences shared_preferences = getContext().getSharedPreferences("dosya_adi",MODE_PRIVATE);
 
         Gson gson = new Gson();
         String json = shared_preferences.getString("key", "");
-        Kategori kategori = gson.fromJson(json, Kategori.class);
+        kategori = gson.fromJson(json, Kategori.class);
+        getActivity().setTitle(kategori.getKategoriBasligi());
+        root=inflater.inflate(R.layout.fragment_komut_reycliview,container,false);
+        init();
+
+
 
 
         if(kategori.getKategoriBasligi().equals("Benim Komutlarım")){
@@ -147,8 +150,6 @@ public class KomutReycliviewFragment extends Fragment implements SearchView.OnQu
         return true;
     }
 
-    public interface OnItem1SelectedListener {
-        void OnItem1SelectedListener(String item);
-    }
+
 
 }

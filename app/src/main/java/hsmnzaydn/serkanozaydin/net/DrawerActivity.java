@@ -40,6 +40,8 @@ private FragmentManager fragmentManager;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
         KategoriReycliviewFragment fragment=new KategoriReycliviewFragment();
@@ -178,6 +180,8 @@ private FragmentManager fragmentManager;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
 
 

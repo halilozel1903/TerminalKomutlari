@@ -47,6 +47,7 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle("Terminal Komutları");
         root=inflater.inflate(R.layout.fragment_kategori_reycliview,container,false);
         init();
         actionButton.setMenuListener(new FabSpeedDial.MenuListener() {

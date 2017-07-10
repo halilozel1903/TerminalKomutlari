@@ -16,6 +16,10 @@ import com.gturedi.views.StatefulLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
+import java.util.List;
+
+import hsmnzaydn.serkanozaydin.net.KurucuClasslar.onlineKomutlar;
+import hsmnzaydn.serkanozaydin.net.MysqlConnect;
 import hsmnzaydn.serkanozaydin.net.R;
 
 /**
@@ -26,6 +30,7 @@ public class onlineKomutlarReycliviewFragment extends Fragment {
 private View root;
     private RecyclerView recyclerView;
     private SwipyRefreshLayout refreshLayout;
+    private List<onlineKomutlar> komutlarList;
 
 
 
@@ -34,6 +39,8 @@ private View root;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle("Online Komutlar");
+
         root=inflater.inflate(R.layout.fragment_reycliview_onlinekomutlar,container,false);
 
 
