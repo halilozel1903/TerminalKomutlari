@@ -2,6 +2,7 @@ package hsmnzaydn.serkanozaydin.net;
 
 
 import android.content.Context;
+
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +12,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -28,18 +30,20 @@ import java.util.Map;
 import hsmnzaydn.serkanozaydin.net.Adapter.onlineKomutlarAdapter;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.onlineKomutlar;
 
+
 /**
  * Created by hsmnzaydn on 23.06.2017.
  */
 
 public class MysqlConnect  {
 
-    private String url_veriCek="http://www.serkanozaydin.net/baglanti/veriCek.php";
+    private String url_veriCek="http://www.serkanozaydin.net/baglanti/json.php";
     private String url_veriGonder="http://www.serkanozaydin.net/baglanti/veriGonder.php";
     private Context context;
     private RecyclerView recyclerView;
     private Map<String,String> params;
     private StatefulLayout statefulLayout;
+    private RequestQueue requestQueue;
 
 
 
@@ -67,60 +71,58 @@ public class MysqlConnect  {
 
 
     public void VeriGetir(){
+        requestQueue = Volley.newRequestQueue(getContext());
         final List<onlineKomutlar> komutlarList=new ArrayList<onlineKomutlar>();
-        RequestQueue requestQueue= Volley.newRequestQueue(getContext());
         statefulLayout.showLoading("Yükleniyor");
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST, url_veriCek, new Response.Listener<JSONObject>() {
+
+        JsonArrayRequest jor= new JsonArrayRequest(url_veriCek, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(JSONArray response) {
 
-                try {
-                    JSONArray komutlar= response.getJSONArray("komutlar");
+                        try{
 
-                    for (int i=0; i<komutlar.length();i++){
+                            for (int i=0; i<response.length(); i++)
+                            {
 
-                        JSONObject komut=komutlar.getJSONObject(i);
-                        String baslik=komut.getString("komut");
-                        String icerik=komut.getString("komut_icerigi");
-                        String kategori=komut.getString("kategori");
-                        int kabul=komut.getInt("kabul");
+                                JSONObject object=response.getJSONObject(i);
 
 
-                        if(kabul==1) {
-                            komutlarList.add(new onlineKomutlar(baslik, icerik, kategori));
-                        }
+                                onlineKomutlar onlineKomut=new onlineKomutlar(object.getString("komut"),object.getString("komut_icerigi"),object.getString("kategori"));
+                                    if(object.getInt("kabul")==1){
+                                        komutlarList.add(onlineKomut);
 
+                                    }
+                            }
+
+                            onlineKomutlarAdapter adapter=new onlineKomutlarAdapter(komutlarList,getContext());
+
+                            recyclerView.setHasFixedSize(true);
+
+                            recyclerView.setAdapter(adapter);
+
+                            recyclerView.setItemAnimator(new DefaultItemAnimator());
+                            adapter.notifyDataSetChanged();
+
+                            statefulLayout.showContent();
+
+                        }catch(JSONException e){e.printStackTrace();}
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Volley","Error");
 
                     }
-
-
-
-                    onlineKomutlarAdapter adapter=new onlineKomutlarAdapter(komutlarList,getContext());
-
-                    recyclerView.setHasFixedSize(true);
-
-                    recyclerView.setAdapter(adapter);
-
-                    recyclerView.setItemAnimator(new DefaultItemAnimator());
-                    adapter.notifyDataSetChanged();
-                    statefulLayout.showContent();
-                } catch (JSONException e) {
-                    Log.e("Hata",e.getLocalizedMessage());
                 }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("Hata ErrorResponse",error.getLocalizedMessage());
-            }
-        });
-        requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(jsonObjectRequest);
-
+        );
+        requestQueue.add(jor);
 
 
     }
+
+
+
 
 
     public void VeriGetirRefresh(){

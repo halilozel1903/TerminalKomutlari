@@ -3,6 +3,7 @@ package hsmnzaydn.serkanozaydin.net.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,11 +17,16 @@ import com.gturedi.views.StatefulLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
+import java.util.Arrays;
 import java.util.List;
 
+import hsmnzaydn.serkanozaydin.net.Adapter.onlineKomutlarAdapter;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.onlineKomutlar;
 import hsmnzaydn.serkanozaydin.net.MysqlConnect;
 import hsmnzaydn.serkanozaydin.net.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by hsmnzaydn on 23.06.2017.
@@ -30,7 +36,7 @@ public class onlineKomutlarReycliviewFragment extends Fragment {
 private View root;
     private RecyclerView recyclerView;
     private SwipyRefreshLayout refreshLayout;
-    private List<onlineKomutlar> komutlarList;
+
 
 
 
@@ -51,6 +57,8 @@ private View root;
         MysqlConnect connect=new MysqlConnect(getContext(),recyclerView,stateful);
         connect.VeriGetir();
 
+
+
         refreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
@@ -60,6 +68,8 @@ private View root;
 
             }
         });
+
+
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
