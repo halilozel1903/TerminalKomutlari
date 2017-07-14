@@ -37,8 +37,7 @@ dependencies {
     compile 'com.github.gturedi:stateful-layout:1.2.1'
     compile 'com.google.android.gms:play-services-ads:8.4.0'
     compile 'com.github.orangegangsters:swipy:1.2.3@aar'
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
 
 
 

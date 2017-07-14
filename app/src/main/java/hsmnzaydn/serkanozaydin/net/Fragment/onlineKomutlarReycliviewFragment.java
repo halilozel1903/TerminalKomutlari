@@ -3,7 +3,6 @@ package hsmnzaydn.serkanozaydin.net.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,16 +16,9 @@ import com.gturedi.views.StatefulLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
-import java.util.Arrays;
-import java.util.List;
-
-import hsmnzaydn.serkanozaydin.net.Adapter.onlineKomutlarAdapter;
-import hsmnzaydn.serkanozaydin.net.KurucuClasslar.onlineKomutlar;
 import hsmnzaydn.serkanozaydin.net.MysqlConnect;
 import hsmnzaydn.serkanozaydin.net.R;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+
 
 /**
  * Created by hsmnzaydn on 23.06.2017.
