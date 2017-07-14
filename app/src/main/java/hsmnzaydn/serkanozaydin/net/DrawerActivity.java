@@ -26,12 +26,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import hsmnzaydn.serkanozaydin.net.Fragment.KategoriReycliviewFragment;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 private FragmentManager fragmentManager;
+    private AdView mAdView;
 
 
 
@@ -69,7 +73,9 @@ private FragmentManager fragmentManager;
 
 
 
-
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         drawer.setDrawerListener(toggle);
         toggle.syncState();

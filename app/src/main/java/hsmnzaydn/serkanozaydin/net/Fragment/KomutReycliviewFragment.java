@@ -41,7 +41,7 @@ public class KomutReycliviewFragment extends Fragment implements SearchView.OnQu
     private List<Komut> liste_komut;
     private KomutAdapter adapter;
     private Kategori kategori;
- 
+
 
 
 
