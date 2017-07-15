@@ -2,6 +2,7 @@ package hsmnzaydn.serkanozaydin.net.Adapter;
 
 import android.content.Context;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +43,7 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
 
         private TextView komutBasligi;
         private TextView komutIcerigi;
-        private LinearLayout linearLayout;
+        public LinearLayout linearLayout;
         private MaterialFavoriteButton favori;
 
 
@@ -69,7 +70,7 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(KomutAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final KomutAdapter.ViewHolder holder, final int position) {
         final Komut komut= liste_komut.get(position);
         holder.komutBasligi.setText(komut.getKomutBasligi());
         holder.komutIcerigi.setText(komut.getKomutIslevi());
@@ -91,9 +92,12 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
             public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                 if(favorite){
                     db.KayitEkle(komut);
+                    Snackbar.make(holder.linearLayout,"Komut benim komutlarım kategorisine eklendi",Snackbar.LENGTH_LONG).show();
+
                 }
                 else {
                    db.kayitSil(komut.getKomutBasligi());
+                    Snackbar.make(holder.linearLayout,"Komut benim komutlarım kategorisinden çıkarıldı",Snackbar.LENGTH_LONG).show();
                 }
             }
         });
