@@ -69,6 +69,14 @@ public class Veritabanı extends SQLiteOpenHelper {
 
     }
 
+    public void kayitSil(String komutBasligi){
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        db.delete(TABLE_NAME,BASLIK+"=?",new String[]{komutBasligi});
+
+        db.close();
+    }
+
     public void KayitEkle(Komut komut) {
 
         SQLiteDatabase db=this.getWritableDatabase();

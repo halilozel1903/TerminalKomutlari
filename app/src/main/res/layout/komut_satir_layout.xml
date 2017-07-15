@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/komut_satir_layout_lineerlayout">
 
     <android.support.v7.widget.CardView
         android:id="@+id/komut_satir_layout_cardview"
@@ -24,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
             <TextView
+                android:layout_weight="0.9"
                 android:id="@+id/komut_satir_layout_komut_basligi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,6 +34,12 @@
                 android:textColor="@color/KomutBasliklari"
                 android:textSize="19sp"
                 android:textStyle="bold" />
+
+                <com.github.ivbaranov.mfb.MaterialFavoriteButton
+                    android:id="@+id/komut_satir_layout_favori"
+                    android:layout_weight="0.1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
 
 

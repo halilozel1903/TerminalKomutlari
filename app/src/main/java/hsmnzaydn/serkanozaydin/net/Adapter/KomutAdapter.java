@@ -6,14 +6,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 import hsmnzaydn.serkanozaydin.net.R;
+import hsmnzaydn.serkanozaydin.net.Veritabanı;
 
 
 /**
@@ -38,6 +42,8 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
 
         private TextView komutBasligi;
         private TextView komutIcerigi;
+        private LinearLayout linearLayout;
+        private MaterialFavoriteButton favori;
 
 
         public ViewHolder(View view) {
@@ -45,7 +51,8 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
 
             komutBasligi = (TextView) view.findViewById(R.id.komut_satir_layout_komut_basligi);
             komutIcerigi = (TextView) view.findViewById(R.id.komut_satir_layout_komut_islevi);
-
+            linearLayout= (LinearLayout) view.findViewById(R.id.komut_satir_layout_lineerlayout);
+            favori= (MaterialFavoriteButton) view.findViewById(R.id.komut_satir_layout_favori);
 
 
         }
@@ -63,9 +70,34 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(KomutAdapter.ViewHolder holder, final int position) {
-        Komut komut= liste_komut.get(position);
+        final Komut komut= liste_komut.get(position);
         holder.komutBasligi.setText(komut.getKomutBasligi());
         holder.komutIcerigi.setText(komut.getKomutIslevi());
+
+
+        final Veritabanı db=new Veritabanı(context);
+
+        List<Komut> komutList=db.TumKayitlariGetir();
+
+        for(Komut komut1:komutList){
+            if (komut1.getKomutBasligi().toString().equals(komut.getKomutBasligi().toString())){
+                holder.favori.setFavorite(true);
+            }
+        }
+
+
+        holder.favori.setOnFavoriteChangeListener(new MaterialFavoriteButton.OnFavoriteChangeListener() {
+            @Override
+            public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+                if(favorite){
+                    db.KayitEkle(komut);
+                }
+                else {
+                   db.kayitSil(komut.getKomutBasligi());
+                }
+            }
+        });
+
     }
 
 
