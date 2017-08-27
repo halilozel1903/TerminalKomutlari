@@ -152,6 +152,14 @@
     {
       "KomutAdi":"find / -size +50M -size -100M",
       "Islevi":"50MB ve 100MB arasındaki tüm dosyaları bulur"
+    },
+    {
+      "KomutAdi":"lsattr",
+      "Islevi":"Sistemde değiştirilemez dosya olup olmadığını bulmak için kullanılır"
+    },
+    {
+      "KomutAdi":"find <dosya_yolu> -perm -4000",
+      "Islevi":"Dosya yolunda bulunan suid bite sahip dosyaları bulmak için kullanılır"
     }
   ],
 
@@ -378,6 +386,37 @@
     },{
       "KomutAdi":"halt",
       "Islevi":"Sistemi durdur "
+    },{
+      "KomutAdi":"help",
+      "Islevi":"Yardım almak için kullanılır"
+    },{
+      "KomutAdi":"lsb_release -a",
+      "Islevi":"Dağıtımla ilgili bilgiyi görmek için kullanılır"
+    },{
+      "KomutAdi":"dmidecode",
+      "Islevi":"Sistemimizle ilgili bilgi(bios,memory,cache vb) almak için kullanılır.Örn:demicode --type bios, demicode --type memory"
+    },{
+      "KomutAdi":"free -m",
+      "Islevi":"Bellek miktarını görmek için kullanılır."
+    },{
+      "KomutAdi":"history",
+      "Islevi":"Daha önce kullanılmış komut satırlarını görmemize yarar."
+    },{
+      "KomutAdi":"passwd <kullanıcı_adı>",
+      "Islevi":"Kullanıcı adının şifresini değiştirmek için kullanılır."
+    },{
+      "KomutAdi":"usermod -L <kullanıcı_adı>",
+      "Islevi":"Kullanıcı hesabını kilitlemek için kullanılır."
+    },{
+      "KomutAdi":"usermod -U <kullanıcı_adı>",
+      "Islevi":"Kullanıcı hesabını tekrar aktif etmek için kullanılır."
+    },{
+      "KomutAdi":"chage -E tarih(12.02.2022) <kullanıcı_adı>",
+      "Islevi":"Kullanıcı hesabının parola dolum süresini belirlemek için kullanılır. "
+    }
+  ,{
+      "KomutAdi":"echo $SHELL",
+      "Islevi":"Sisteminizde kullanılan kabuk programını görmek için kullanılır."
     }
 
   ],
@@ -403,8 +442,11 @@
       "KomutAdi":"chmod +x dosya",
       "Islevi":"Dosyaya çalıştırma izni verir"
     },{
-      "KomutAdi":"chmod 777 dosya",
-      "Islevi":"Dosyaya herkes için okuma, yazma ve çalıştırma izni verir."
+      "KomutAdi":"chattr +i dosya",
+      "Islevi":"Dosyayı değiştirilemez yapmak için kullanılır"
+    },{
+      "KomutAdi":"chmod a+r dosya",
+      "Islevi":"Tüm kullanıcılara okuma izni verir"
     }
   ],
 
@@ -503,6 +545,34 @@
       "Islevi":"Apt komutu hakkında bilgi verir"
     }
 
+  ],
+  "RPM Komutları":[
+    {
+      "KomutAdi":"rpm -ivh <program.rpm>",
+      "Islevi":"RPM uzantılı dosyayı kurmak için kullanılır"
+    },
+    {
+      "KomutAdi":"rpm -ev <program.rpm>",
+      "Islevi":"Kurulan paketi sistemden kaldırır"
+    },
+    {
+      "KomutAdi":"yum install <program_adı>",
+      "Islevi":"Depodaki programı kurar."
+    },
+    {
+      "KomutAdi":"apt-cache search <program_adı> ",
+      "Islevi":"Kurmak istediğimiz program depoda varmı yokmu diye arar."
+    },{
+      "KomutAdi":"apt-cache show <program_adı> ",
+      "Islevi":"Kurmak istediğimiz program ile ilgili bilgi almak için kullanılır."
+    },
+    {
+      "KomutAdi":"yum remove <paket_adı> ",
+      "Islevi":"Kurulan paketi sistemden siler."
+    },{
+      "KomutAdi":"yum update",
+      "Islevi":"Sistemi güncellemek için kullanılır."
+    }
   ],
 
   "Pacman Komutları":[

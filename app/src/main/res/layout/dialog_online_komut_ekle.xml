@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="5dp">
 
@@ -16,7 +15,7 @@
             android:layout_marginTop="5dp"
             android:textStyle="bold"
             android:textSize="25sp"
-            android:text="Online Komut Ekle"
+            android:text="@string/online_komut_ekle"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -28,7 +27,7 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Komut Başlığı"
+            android:hint="@string/komut_basligi"
             android:textColor="#333"
             android:textColorHint="#666"/>
 
@@ -38,7 +37,7 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Komut Açıklaması"
+            android:hint="@string/komut_aciklamasi"
             android:textColor="#333"
             android:textColorHint="#666"/>
 
@@ -48,7 +47,7 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Komut Kategorisi"
+            android:hint="@string/komut_kategorisi"
             android:textColor="#333"
             android:textColorHint="#666"/>
 
@@ -56,9 +55,9 @@
             android:id="@+id/dialog_online_komut_ekle"
 
             android:layout_marginTop="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/beyaz"
             android:background="@color/colorAccent"
-            android:text="Ekle"
+            android:text="@string/ekle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

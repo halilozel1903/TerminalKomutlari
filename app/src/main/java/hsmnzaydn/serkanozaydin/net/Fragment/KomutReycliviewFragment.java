@@ -2,6 +2,7 @@ package hsmnzaydn.serkanozaydin.net.Fragment;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
@@ -41,6 +42,7 @@ public class KomutReycliviewFragment extends Fragment implements SearchView.OnQu
     private List<Komut> liste_komut;
     private KomutAdapter adapter;
     private Kategori kategori;
+    private Boolean language;
 
 
 
@@ -58,18 +60,30 @@ public class KomutReycliviewFragment extends Fragment implements SearchView.OnQu
         init();
 
 
+        SharedPreferences app_preferences = PreferenceManager
+                .getDefaultSharedPreferences(getContext());
+        language = app_preferences.getBoolean("language",false);
+        if(language) {
 
+            if (kategori.getKategoriBasligi().equals("Benim Komutlarım")) {
+                Veritabanı db = new Veritabanı(getContext(), Komutlar);
+                liste_komut = db.TumKayitlariGetir();
 
-        if(kategori.getKategoriBasligi().equals("Benim Komutlarım")){
-            Veritabanı db=new Veritabanı(getContext(),Komutlar);
-            liste_komut=db.TumKayitlariGetir();
-
+            } else {
+                JsonParse parse = new JsonParse(getContext(), kategori.getKategoriBasligi());
+                liste_komut = parse.KomutlariCek();
+            }
         }
-        else {
-            JsonParse parse=new JsonParse(getContext(),kategori.getKategoriBasligi());
-           liste_komut= parse.KomutlariCek();
-        }
+        else{
+            if (kategori.getKategoriBasligi().equals("My Commands")) {
+                Veritabanı db = new Veritabanı(getContext(), Komutlar);
+                liste_komut = db.TumKayitlariGetir();
 
+            } else {
+                JsonParse parse = new JsonParse(getContext(), kategori.getKategoriBasligi());
+                liste_komut = parse.komutlariCekIngilizce();
+            }
+        }
 
          adapter=new KomutAdapter(liste_komut,getContext());
 

@@ -2,10 +2,12 @@ package hsmnzaydn.serkanozaydin.net;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
@@ -29,13 +31,16 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import hsmnzaydn.serkanozaydin.net.Fragment.KategoriPaylasFragment;
 import hsmnzaydn.serkanozaydin.net.Fragment.KategoriReycliviewFragment;
+import hsmnzaydn.serkanozaydin.net.Fragment.LinuxKaynaklarFragment;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 private FragmentManager fragmentManager;
     private AdView mAdView;
+    private Boolean language;
 
 
 
@@ -46,7 +51,6 @@ private FragmentManager fragmentManager;
         setContentView(R.layout.activity_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         fragmentManager=getSupportFragmentManager();
@@ -136,7 +140,7 @@ private FragmentManager fragmentManager;
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/html");
             intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "serkan.zaydn@gmail.com" });
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Terminal Komutları Mail");
+            intent.putExtra(Intent.EXTRA_SUBJECT, getApplicationContext().getResources().getString(R.string.mail_baslik));
             intent.putExtra(Intent.EXTRA_TEXT, "");
             startActivity(Intent.createChooser(intent, "Send Email"));
 
@@ -168,7 +172,7 @@ private FragmentManager fragmentManager;
 
                     Veritabanı db=new Veritabanı(getApplicationContext());
                     db.KayitEkle(new Komut(baslik,icerik));
-                    Toast.makeText(getApplicationContext(),"Komutunuz eklendi",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),getApplicationContext().getResources().getString(R.string.komut_eklendi),Toast.LENGTH_SHORT).show();
 
                     dialog.cancel();
                 }
@@ -176,6 +180,15 @@ private FragmentManager fragmentManager;
 
 
 
+        }
+        else if (id==R.id.pdf_aktar){
+            fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            KategoriPaylasFragment fragment = new KategoriPaylasFragment();
+            transaction.replace(R.id.container, fragment, "deneme");
+            transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
         else if (id == R.id.online_ekle) {
             AlertDialog.Builder yerelOnlineKomut=new AlertDialog.Builder(DrawerActivity.this);
@@ -199,7 +212,7 @@ private FragmentManager fragmentManager;
 
                     if(!komut.trim().equals("") && !aciklama.trim().equals("") && !kategori.trim().equals("")){
                         connect.VeriKaydet(komut,aciklama,kategori);
-                        Toast.makeText(getApplicationContext(),"Komutunuz gönderildi",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),getApplicationContext().getResources().getString(R.string.komut_gonderildi),Toast.LENGTH_SHORT).show();
 
                         dialogOnline.cancel();
 
@@ -210,6 +223,16 @@ private FragmentManager fragmentManager;
                     }
                 }
             });
+
+        }
+        else if(id==R.id.linux_kaynaklar){
+            fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            LinuxKaynaklarFragment fragment = new LinuxKaynaklarFragment();
+            transaction.replace(R.id.container, fragment, "deneme");
+            transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            transaction.addToBackStack(null);
+            transaction.commit();
 
         }
         else if (id == R.id.oyla) {

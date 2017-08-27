@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Terminal Commands</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_settings">Search</string>
+    <string name="dil_sec">Choose a language</string>
+    <string name="bana_ulas">Contact Me</string>
+    <string name="diger_uygulamalar">Other Apps</string>
+    <string name="diğerleri">Others</string>
+    <string name="komut_eklendi">Added Command</string>
+    <string name="komut_gonderildi">Sended Command</string>
+    <string name="kullanilabilecek_kaynaklar">Sources</string>
+    <string name="mail_baslik">Subject Of Mail</string>
+    <string name="online_komut_ekle">Add Online Command</string>
+    <string name="oyla">Rating</string>
+    <string name="paylas">Share</string>
+    <string name="pdfe_aktar">Transfer to PDF</string>
+    <string name="yerel_komut_ekle">Add Local Command</string>
+    <string name="ag_komutlari">Network Commands</string>
+    <string name="apt_komutlari">APT Commands</string>
+    <string name="arama_komutlari">Search Commands</string>
+    <string name="dosya_komutlari">File Commands</string>
+    <string name="ftp_komutlari">FTP Commands</string>
+    <string name="git_komutlari">Git Commands</string>
+    <string name="izin_komutlari">Permission Commands</string>
+    <string name="buyukreklam">buyukreklam</string>
+    <string name="pacman_komutlari">Pacman Commands</string>
+    <string name="sikistirma_komutlari">Compression Commands</string>
+    <string name="sistem_komutlari">System Commands</string>
+    <string name="komut_aciklamasi">Statement</string>
+    <string name="komut_basligi">explanation</string>
+    <string name="komut_kategorisi">Command\'s Category</string>
+    <string name="title_activity_drawer">Terminal Commands</string>
+    <string name="ekle">Add</string>
+</resources>

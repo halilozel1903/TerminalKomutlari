@@ -1,7 +1,10 @@
 package hsmnzaydn.serkanozaydin.net.Fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.internal.NavigationMenu;
 import android.support.v4.app.Fragment;
@@ -24,7 +27,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,7 @@ import hsmnzaydn.serkanozaydin.net.R;
 import hsmnzaydn.serkanozaydin.net.Veritabanı;
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 
+
 /**
  * Created by hsmnzaydn on 16.06.2017.
  */
@@ -48,7 +51,8 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
     private KategoriAdapter adapter;
     private FragmentManager fragmentManager;
     private FabSpeedDial actionButton;
-    private AdView adView;
+    private Boolean language;
+
 
 
 
@@ -57,7 +61,7 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        getActivity().setTitle("Terminal Komutları");
+        getActivity().setTitle(getString(R.string.app_name));
         root=inflater.inflate(R.layout.fragment_kategori_reycliview,container,false);
         init();
         actionButton.setMenuListener(new FabSpeedDial.MenuListener() {
@@ -137,6 +141,18 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
                         shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=hsmnzaydn.serkanozaydin.net");
 
                         startActivity(Intent.createChooser(shareIntent, "Terminal komutları"));
+                        break;
+                    case R.id.pdf:
+                        fragmentManager = ((FragmentActivity)getContext()).getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        KategoriPaylasFragment fragment = new KategoriPaylasFragment();
+                        transaction.replace(R.id.container, fragment, "deneme");
+                        transaction.setCustomAnimations( android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+
+
+
 
 
                 }
@@ -150,42 +166,78 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
         });
 
 
-        Veritabanı db=new Veritabanı(getContext());
-        if(kategoriList.size()==0) {
-            kategoriList.add(new Kategori("Dosya Komutları"));
-            kategoriList.add(new Kategori( "Arama Komutları"));
-            kategoriList.add(new Kategori("Sıkıştırma Komutları"));
-            kategoriList.add(new Kategori( "FTP Komutları"));
-            kategoriList.add(new Kategori("Ağ Komutları"));
-            kategoriList.add(new Kategori("İzin Komutları"));
-            kategoriList.add(new Kategori("Sistem Komutları"));
-            kategoriList.add(new Kategori("Git Komutları"));
-            kategoriList.add(new Kategori("APT Komutları"));
-            kategoriList.add(new Kategori("Pacman Komutları"));
-            kategoriList.add(new Kategori("Milis Linux Komutları"));
-            kategoriList.add(new Kategori("Fux Project Komutları"));
-            kategoriList.add(new Kategori("Benim Komutlarım"));
-            kategoriList.add(new Kategori("Online Komutlar"));
+        SharedPreferences app_preferences = PreferenceManager
+                .getDefaultSharedPreferences(getContext());
+        language = app_preferences.getBoolean("language",false);
+
+        if(language) {
+            if (kategoriList.size() == 0) {
+                kategoriList.add(new Kategori("Dosya Komutları"));
+                kategoriList.add(new Kategori("Arama Komutları"));
+                kategoriList.add(new Kategori("Sıkıştırma Komutları"));
+                kategoriList.add(new Kategori("FTP Komutları"));
+                kategoriList.add(new Kategori("Ağ Komutları"));
+                kategoriList.add(new Kategori("İzin Komutları"));
+                kategoriList.add(new Kategori("Sistem Komutları"));
+                kategoriList.add(new Kategori("Git Komutları"));
+                kategoriList.add(new Kategori("APT Komutları"));
+                kategoriList.add(new Kategori("Pacman Komutları"));
+                kategoriList.add(new Kategori("Milis Linux Komutları"));
+                kategoriList.add(new Kategori("Fux Project Komutları"));
+                kategoriList.add(new Kategori("Benim Komutlarım"));
+                kategoriList.add(new Kategori("Online Komutlar"));
 
 
-
+            } else {
+                kategoriList.clear();
+                kategoriList.add(new Kategori("Dosya Komutları"));
+                kategoriList.add(new Kategori("Arama Komutları"));
+                kategoriList.add(new Kategori("Sıkıştırma Komutları"));
+                kategoriList.add(new Kategori("FTP Komutları"));
+                kategoriList.add(new Kategori("Ağ Komutları"));
+                kategoriList.add(new Kategori("İzin Komutları"));
+                kategoriList.add(new Kategori("Sistem Komutları"));
+                kategoriList.add(new Kategori("Git Komutları"));
+                kategoriList.add(new Kategori("APT Komutları"));
+                kategoriList.add(new Kategori("Pacman Komutları"));
+                kategoriList.add(new Kategori("Milis Linux Komutları"));
+                kategoriList.add(new Kategori("Fux Project Komutları"));
+                kategoriList.add(new Kategori("Benim Komutlarım"));
+                kategoriList.add(new Kategori("Online Komutlar"));
+            }
         }
         else {
-            kategoriList.clear();
-            kategoriList.add(new Kategori("Dosya Komutları"));
-            kategoriList.add(new Kategori( "Arama Komutları"));
-            kategoriList.add(new Kategori("Sıkıştırma Komutları"));
-            kategoriList.add(new Kategori( "FTP Komutları"));
-            kategoriList.add(new Kategori("Ağ Komutları"));
-            kategoriList.add(new Kategori("İzin Komutları"));
-            kategoriList.add(new Kategori("Sistem Komutları"));
-            kategoriList.add(new Kategori("Git Komutları"));
-            kategoriList.add(new Kategori("APT Komutları"));
-            kategoriList.add(new Kategori("Pacman Komutları"));
-            kategoriList.add(new Kategori("Milis Linux Komutları"));
-            kategoriList.add(new Kategori("Fux Project Komutları"));
-            kategoriList.add(new Kategori("Benim Komutlarım"));
-            kategoriList.add(new Kategori("Online Komutlar"));
+            if (kategoriList.size() == 0) {
+                kategoriList.add(new Kategori("File Commands"));
+                kategoriList.add(new Kategori("Search Commands"));
+                kategoriList.add(new Kategori("Compression Commands"));
+                kategoriList.add(new Kategori("FTP Commands"));
+                kategoriList.add(new Kategori("Network Commands"));
+                kategoriList.add(new Kategori("Permission Commands"));
+                kategoriList.add(new Kategori("System Commands"));
+                kategoriList.add(new Kategori("Git Commands"));
+                kategoriList.add(new Kategori("APT Commands"));
+                kategoriList.add(new Kategori("Pacman Commands"));
+                kategoriList.add(new Kategori("My Commands"));
+                kategoriList.add(new Kategori("Online Commands"));
+
+
+            } else {
+                kategoriList.clear();
+                kategoriList.add(new Kategori("File Commands"));
+                kategoriList.add(new Kategori("Search Commands"));
+                kategoriList.add(new Kategori("Compression Commands"));
+                kategoriList.add(new Kategori("FTP Commands"));
+                kategoriList.add(new Kategori("Network Commands"));
+                kategoriList.add(new Kategori("Permission Commands"));
+                kategoriList.add(new Kategori("System Commands"));
+                kategoriList.add(new Kategori("Git Commands"));
+                kategoriList.add(new Kategori("APT Commands"));
+                kategoriList.add(new Kategori("Pacman Commands"));
+                kategoriList.add(new Kategori("My Commands"));
+                kategoriList.add(new Kategori("Online Commands"));
+            }
+
         }
 
 
@@ -233,6 +285,7 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
 
 
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.drawer, menu);
@@ -245,6 +298,7 @@ public class KategoriReycliviewFragment extends Fragment implements SearchView.O
 
         super.onCreateOptionsMenu(menu, inflater);
     }
+
 
 
     @Override

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Terminal Komutları</string>
+    <string name="action_refresh">Yenile</string>
+    <string name="action_settings">Ara</string>
+    <string name="dil_sec">Bir dil seçin</string>
+    <string name="bana_ulas">Bana Ulaş</string>
+    <string name="diger_uygulamalar">Diğer Uygulamalar</string>
+    <string name="diğerleri">Diğerleri</string>
+    <string name="komut_eklendi">Komut Eklendi</string>
+    <string name="komut_gonderildi">Komut Gönderildi</string>
+    <string name="kullanilabilecek_kaynaklar">Kullanılabilir Kaynaklar</string>
+    <string name="mail_baslik">Mail Başlığı</string>
+    <string name="online_komut_ekle">Online Komut Ekle</string>
+    <string name="oyla">Oyla</string>
+    <string name="paylas">Paylaş</string>
+    <string name="pdfe_aktar">PDF\'e aktar</string>
+    <string name="yerel_komut_ekle">Yerel Komut Ekle</string>
+    <string name="ag_komutlari">Ağ Komutları</string>
+    <string name="apt_komutlari">APT Komutları</string>
+    <string name="arama_komutlari">Arama Komutları</string>
+    <string name="dosya_komutlari">Dosya Komutları</string>
+    <string name="ftp_komutlari">FTP Komutları</string>
+    <string name="git_komutlari">Git Komutları</string>
+    <string name="izin_komutlari">İzin Komutları</string>
+    <string name="buyukreklam">buyukreklam</string>
+    <string name="pacman_komutlari">Pacman Komutları</string>
+    <string name="sikistirma_komutlari">Sıkıştırma Komutları</string>
+    <string name="sistem_komutlari">Sistem Komutları</string>
+    <string name="ekle">Ekle</string>
+    <string name="komut_aciklamasi">Komut Açıklaması</string>
+    <string name="komut_basligi">Komut Başlığı</string>
+    <string name="komut_kategorisi">Komut Kategorisi</string>
+    <string name="title_activity_drawer">Terminal Komutları</string>
+
+
+</resources>

@@ -1,0 +1,618 @@
+{
+"File Commands":[
+{
+"KomutAdi":"ls",
+"Islevi":"List current directory"
+},
+{
+"KomutAdi":"ls -i",
+"Islevi":"Display Inode number of File or Directory"
+},
+{
+"KomutAdi":"ls -R",
+"Islevi":"Shows recursively list of Sub-Directories"
+},
+{
+"KomutAdi":"ls -l",
+"Islevi":"Shows file or directory,size,modified date and time, file or folder name and owner of file and it's permission"
+},
+  {
+    "KomutAdi":"ls -lh",
+    "Islevi":"Shows sizes in human readable format"
+  }
+,
+  {
+    "KomutAdi":"ls -al",
+    "Islevi":"Formatted listing with hidden files"
+  },
+  {
+    "KomutAdi":"cd dir",
+    "Islevi":"Changed directory to dir"
+  },
+  {
+    "KomutAdi":"cd ..",
+    "Islevi":"Change directory to before dir"
+  },
+  {
+    "KomutAdi":"pwd",
+    "Islevi":"Show current directory"
+  },
+  {
+    "KomutAdi":"mkdir dir",
+    "Islevi":"Create a dir on your current directory"
+  },
+  {
+    "KomutAdi":"rm dir",
+    "Islevi":"Delete the dir"
+  },
+  {
+    "KomutAdi":"rm -r file",
+    "Islevi":"Delete the file"
+  },
+  {
+    "KomutAdi":"rm -f file",
+    "Islevi":"Force remove file"
+  }
+,
+  {
+    "KomutAdi":"rm *",
+    "Islevi":"Delete all file in your current directory"
+  },
+  {
+    "KomutAdi":"rm a*",
+    "Islevi":"Delete all starting with a file"
+  },{
+    "KomutAdi":"rm bet*as",
+    "Islevi":"Delete starting with as and ending with bet files"
+  },
+  {
+    "KomutAdi":"cp fileA fileB",
+    "Islevi":"Copy fileA to fileB"
+  },
+  {
+    "KomutAdi":"cp -r dir1 dir2",
+    "Islevi":"Copy dir1 to dir2.If there isn't dir2 it create a dir2"
+  },
+  {
+    "KomutAdi":"mv dir1 dir2",
+    "Islevi":"Move dir1 to dir2"
+  },
+  {
+    "KomutAdi":"ls -s file link",
+    "Islevi":"Create sembolic link for file"
+  },
+  {
+    "KomutAdi":"touch file",
+    "Islevi":"Create a file or update file"
+  },
+  {
+    "KomutAdi":"cat>file",
+    "Islevi":"Write input to in file"
+  },
+  {
+    "KomutAdi":"more file",
+    "Islevi":"Get informatin abouth file"
+  },
+  {
+    "KomutAdi":"head file",
+    "Islevi":"Get first 10 line of file"
+  },
+  {
+    "KomutAdi":"less text",
+    "Islevi":"Return content of text"
+  },
+  {
+    "KomutAdi":"comm fileA fileB",
+    "Islevi":"Compare fileA with fileB"
+  }
+
+],
+  "Search Commands":[
+
+  {
+  "KomutAdi":"locate fileA",
+  "Islevi":"Index other files in the directory where the file is located"
+},
+    {
+      "KomutAdi":"find / -name foo",
+      "Islevi":"Search with gived name of file"
+    },
+    {
+      "KomutAdi":"find /home -iname file.txt",
+      "Islevi":"Find name is file.txt files in home directory"
+    },
+    {
+      "KomutAdi":"find / -type d -name file",
+      "Islevi":"Find all file files"
+    },
+    {
+      "KomutAdi":"find . -type f -name *.php",
+      "Islevi":"Find all .php file in file"
+    },
+    {
+      "KomutAdi":"find . -type f -perm 0777 - print",
+      "Islevi":"Find all permission 777 files"
+    },
+    {
+      "KomutAdi":"find ~ -empty",
+      "Islevi":"Find all empty file"
+    },
+    {
+      "KomutAdi":"find / -atime 50",
+      "Islevi":"Find changed files in 50 days"
+    },
+    {
+      "KomutAdi":"find / -cmin -60",
+      "Islevi":"Find changed files in 1 hour"
+    },
+    {
+      "KomutAdi":"find / -mmin -60",
+      "Islevi":"Find modified files in 1 hour"
+    },
+    {
+      "KomutAdi":"find / -size +50M -size -100M",
+      "Islevi":"Find between 500M and 100M files"
+    },
+    {
+      "KomutAdi":"lsattr",
+      "Islevi":"Find unalterable files in system"
+    },
+    {
+      "KomutAdi":"find <file_path> -perm -4000",
+      "Islevi":"Find has suid_bites file"
+    }
+  ],
+
+  "Compression Commands":[
+
+{
+  "KomutAdi":"bzip filename",
+  "Islevi":"Compress of unzip the bzip file"
+},
+    {
+      "KomutAdi":"tar cf file.tar file",
+      "Islevi":"Convert file to file.tar"
+    },
+    {
+      "KomutAdi":"tar xf file.tar",
+      "Islevi":"Unzip file.tar"
+    },
+    {
+      "KomutAdi":"tar czf file.tar.gz file",
+      "Islevi":"Convert file to file.tar.gz"
+    },
+    {
+      "KomutAdi":"tar xzf file.tar.gz",
+      "Islevi":"Unzip file.tar.gz"
+    },
+    {
+      "KomutAdi":"tar cjf file.tar.bz2",
+      "Islevi":"Create a file.tar.bz2 with Bzip2"
+    },
+    {
+      "KomutAdi":"tar xjf file.tar.bz2",
+      "Islevi":"Unzip file.tar.bz2"
+    },
+    {
+      "KomutAdi":"gzip file",
+      "Islevi":"Convert file to file.gzip"
+    },
+    {
+      "KomutAdi":"gzip -d file.gz",
+      "Islevi":"Unzip file.gz"
+    }
+  ],
+
+  "FTP Commands":[
+{
+  "KomutAdi":"ftp",
+  "Islevi":"Enter ftp client"
+},
+    {
+      "KomutAdi":"-p",
+      "Islevi":"Use passive mode"
+    },
+    {
+      "KomutAdi":"-i",
+      "Islevi":"Shutdown request on multi transfer."
+    },
+    {
+      "KomutAdi":"-v",
+      "Islevi":"Verbose mode"
+    },
+    {
+      "KomutAdi":"-d",
+      "Islevi":"Active Debugging"
+    },
+    {
+      "KomutAdi":"$",
+      "Islevi":"Run makro"
+    },
+    {
+      "KomutAdi":"account[password]",
+      "Islevi":"Provides password with remote control"
+    },
+    {
+      "KomutAdi":"ascii",
+      "Islevi":"Setting ascii protocol the transfer file"
+    },
+    {
+      "KomutAdi":"binary",
+      "Islevi":"Support transfer of Images"
+    },
+    {
+      "KomutAdi":"bye",
+      "Islevi":"Out the FTP"
+    },
+
+    {
+      "KomutAdi":"dir",
+      "Islevi":"Show your current files"
+    },
+    {
+      "KomutAdi":"open Host",
+      "Islevi":"Open connect to host"
+    },
+    {
+      "KomutAdi":"status",
+      "Islevi":"Show status of server"
+    }
+  ],
+  "Network Commands":[
+
+{
+  "KomutAdi":"arp",
+  "Islevi":"Control your network card and show your ip"
+},{
+      "KomutAdi":"ifconfig",
+      "Islevi":"Show network interface"
+    },{
+      "KomutAdi":"ping host",
+      "Islevi":"Send ping to address of host"
+    },{
+      "KomutAdi":"whois domain",
+      "Islevi":"Get information of domain"
+    },{
+      "KomutAdi":"dig domain",
+      "Islevi":"Get dns information of domain"
+    },{
+      "KomutAdi":"wget adress",
+      "Islevi":"Download the information of adress"
+    },{
+      "KomutAdi":"wget -c adress",
+      "Islevi":"Continue the download"
+    },{
+      "KomutAdi":"netstat",
+      "Islevi":"Look connect of network and open the sockets"
+    }
+  ],
+
+  "System Commands":[
+    {
+  "KomutAdi":"date",
+  "Islevi":"Show date"
+},{
+      "KomutAdi":"date;who",
+      "Islevi":"Show date and user"
+    },{
+      "KomutAdi":"sudo command",
+      "Islevi":"Run command with root"
+    },{
+      "KomutAdi":"sudo su",
+      "Islevi":"Change the mode on terminal"
+    },
+    {
+      "KomutAdi":"cal",
+      "Islevi":"Show calendar"
+    },{
+      "KomutAdi":"uptime",
+      "Islevi":"Show time of your system"
+    },{
+      "KomutAdi":"whoami",
+      "Islevi":"Show your login account"
+    },{
+      "KomutAdi":"fingure userName",
+      "Islevi":"Show information of userName"
+    },{
+      "KomutAdi":"cat /proc/cpuinfo",
+      "Islevi":"Show CPU information"
+    },{
+      "KomutAdi":"cat /proc/meminfo",
+      "Islevi":"Show memory information"
+    },{
+      "KomutAdi":"df",
+      "Islevi":"Show disk usage"
+    },{
+      "KomutAdi":"free",
+      "Islevi":"Show memory and swap area"
+    }  ,{
+      "KomutAdi":"whereis application",
+      "Islevi":"Show directory of application"
+    },{
+      "KomutAdi":"which application",
+      "Islevi":"Show default application"
+    },{
+      "KomutAdi":"ps aux",
+      "Islevi":"Show running application on your system"
+    },{
+      "KomutAdi":"kill application",
+      "Islevi":"Shutdown the application"
+    },{
+      "KomutAdi":"sensors",
+      "Islevi":"Show temperature of CPU"
+    },{
+      "KomutAdi":"uname -letter",
+      "Islevi":"-m Show your system hardware.\n-n Write Nodename. Nodename has usage for network communication.\n-r Show kernel's release\n-s Write name of system\n-v Write name of OS \n-a Write all information of up"
+    },{
+      "KomutAdi":"alias",
+      "Islevi":"Create a shortcut for "
+    },{
+      "KomutAdi":"dd",
+      "Islevi":"Usage for content of disk"
+    },{
+      "KomutAdi":"shutdown",
+      "Islevi":"shutdown the system"
+    },{
+      "KomutAdi":"apropos",
+      "Islevi":"Search a word in man's pages"
+    },{
+      "KomutAdi":"chfn",
+      "Islevi":"Change information of finger"
+    },{
+      "KomutAdi":"chgrp",
+      "Islevi":"Change group"
+    },{
+      "KomutAdi":"clear",
+      "Islevi":"Clear the terminal"
+    },{
+      "KomutAdi":"continue",
+      "Islevi":"continue the commands "
+    },{
+      "KomutAdi":"deluser userName",
+      "Islevi":"Delete the userName "
+    },{
+      "KomutAdi":"delgroup group",
+      "Islevi":"Delete the group"
+    },{
+      "KomutAdi":"groupadd group",
+      "Islevi":"Create a new group "
+    },{
+      "KomutAdi":"halt",
+      "Islevi":"Stop the system "
+    },{
+      "KomutAdi":"help",
+      "Islevi":"Get help"
+    },{
+      "KomutAdi":"lsb_release -a",
+      "Islevi":"Show information of distribution"
+    },{
+      "KomutAdi":"dmidecode",
+      "Islevi":"Get data of system(bios,memory,cache etc).Exp:demicode --type bios, demicode --type memory"
+    },{
+      "KomutAdi":"free -m",
+      "Islevi":"Show quantity of memory"
+    },{
+      "KomutAdi":"history",
+      "Islevi":"Show used terminal commands"
+    },{
+      "KomutAdi":"passwd <userName>",
+      "Islevi":"Change the password of userName"
+    },{
+      "KomutAdi":"usermod -L <userName>",
+      "Islevi":"Lock the userName account"
+    },{
+      "KomutAdi":"usermod -U <userName>",
+      "Islevi":"Re-active the userName"
+    },{
+      "KomutAdi":"chage -E date(12.02.2022) <userName>",
+      "Islevi":"Used to specify the user account's password expiration time. "
+    }
+  ,{
+      "KomutAdi":"echo $SHELL",
+      "Islevi":"Used to view the shell program used on your system."
+    }
+
+  ],
+  "Permission Commands":[
+    {
+  "KomutAdi":"chmod +r file",
+  "Islevi":"Give read permission to file"
+},{
+      "KomutAdi":"chmod +w file",
+      "Islevi":"Give to write permission to file"
+    },{
+      "KomutAdi":"chmod u+rw file",
+      "Islevi":"Give writer and read permission to file"
+    },
+    {
+      "KomutAdi":"chmod a-x file",
+      "Islevi":"Remove the permission of all user for file"
+    },{
+      "KomutAdi":"chmod u+rw file",
+      "Islevi":"Bununla sahip (bu genellikle sizsiniz), my dosyası üzerinde okuma ve yazma iznine sahip olur."
+    },
+    {
+      "KomutAdi":"chmod +x file",
+      "Islevi":"Give run permission to file"
+    },{
+      "KomutAdi":"chattr +i file",
+      "Islevi":"It's make file to unalterable file"
+    },{
+      "KomutAdi":"chmod a+r file",
+      "Islevi":"Give read permission to file for All user"
+    }
+  ],
+
+  "Git Commands":[
+    {
+  "KomutAdi":"git config --global user.name \"User name\"",
+  "Islevi":"Determines default userName for git"
+},{
+"KomutAdi":"git config --global email \"mail adress\"",
+"Islevi":"Determines default mail for git"
+},{
+      "KomutAdi":"git log",
+      "Islevi":"Show all changes on local repo"
+    },
+    {
+      "KomutAdi":"git status",
+      "Islevi":"Show changes on log file"
+    },{
+      "KomutAdi":"git clone repoAdress",
+      "Islevi":"Copy the repo to current path"
+    },{
+      "KomutAdi":"git clone userName@host:/patch/repo ",
+      "Islevi":"Copy repo to your current file"
+    },{
+      "KomutAdi":"git add fileName",
+      "Islevi":"Add your file to index"
+    },{
+      "KomutAdi":"git add *",
+      "Islevi":"Add all file to index"
+    },{
+      "KomutAdi":"git commit -m \" commit \" ",
+      "Islevi":"Add commit to index file"
+    },{
+      "KomutAdi":"git push origin master",
+      "Islevi":"Push your files to repo"
+    },{
+      "KomutAdi":"git checkout -b branchName",
+      "Islevi":"Create new a branch"
+    },{
+      "KomutAdi":"git checkout master",
+      "Islevi":"Return to master branch"
+    },{
+      "KomutAdi":"git branch -d branch",
+      "Islevi":"Delete the branch"
+    },{
+      "KomutAdi":"git push origin branch",
+      "Islevi":"Your changes push to your branch"
+    },{
+      "KomutAdi":"git pull",
+      "Islevi":"Get last changes"
+    },{
+      "KomutAdi":"git merge branchName",
+      "Islevi":"Merge branch other branch"
+    }
+  ],
+
+  "APT Commands":[
+    {
+      "KomutAdi":"apt-get update",
+      "Islevi":"Update your packages"
+    }, {
+      "KomutAdi":"apt-get upgrade",
+      "Islevi":"upgrade your all package"
+    }, {
+      "KomutAdi":"apt-get dist-upgrade",
+      "Islevi":"Upgrade your Debian version to last version"
+    }, {
+      "KomutAdi":"apt-get install package_name",
+      "Islevi":"Install the package"
+    }, {
+      "KomutAdi":"apt-get install package1 package2 package3 package4 package5 package6 ...",
+      "Islevi":"Install multi package"
+    },{
+      "KomutAdi":"sudo apt-get purge package_name",
+      "Islevi":"Remove package with dependency"
+    },{
+      "KomutAdi":"apt-get remove packageName",
+      "Islevi":"Remove the package"
+    }, {
+      "KomutAdi":"apt-get autoremove",
+      "Islevi":"Remove old packages"
+    }, {
+      "KomutAdi":"apt-get -f install",
+      "Islevi":"It tries to repair faulty packages"
+    },{
+      "KomutAdi":"dpkg -i package.deb",
+      "Islevi":"Install package.deb"
+    },{
+      "KomutAdi":"sudo add-apt-repository yeni_deponun_PPA_adresi",
+      "Islevi":"Add new repository"
+    },{
+      "KomutAdi":"sudo apt-cache show package_name",
+      "Islevi":"Give information of abouth package"
+    },{
+      "KomutAdi":"apt-get help",
+      "Islevi":"Get information about help"
+    }
+
+  ],
+  "Pacman Commands":[
+    {
+  "KomutAdi":"pacman-optimize && sync",
+  "Islevi":"Optimize and match download speed"
+}, {
+      "KomutAdi":"pacman -Su",
+      "Islevi":"Update your system"
+    }, {
+      "KomutAdi":"IgnorePkg=package_name",
+      "Islevi":"Boosts some packages"
+    }, {
+      "KomutAdi":"IgnoreGroup=package_group",
+      "Islevi":"Package group is ignoring altitude"
+    }, {
+      "KomutAdi":"pacman -S package_name",
+      "Islevi":"Install package"
+    }, {
+      "KomutAdi":"pacman -Sw package_name",
+      "Islevi":"Download a package without installing"
+    }, {
+      "KomutAdi":"pacman -U /package patch/packagename.pkg.tar.xz",
+      "Islevi":"Install packagename.pkg.tar.xz"
+    },{
+      "KomutAdi":"pacman -U http://www.examplepackage/repo/examplepkg.tar.xz",
+      "Islevi":"Package loads over the mirror"
+    },{
+      "KomutAdi":"pacman -R package_name",
+      "Islevi":"Remove package"
+    },{
+      "KomutAdi":"pacman -Rs package_name",
+      "Islevi":"Remove package with not use other package's dependencies"
+    },{
+      "KomutAdi":"pacman -Rsc package_name",
+      "Islevi":"Remove package with dependencies"
+    },{
+      "KomutAdi":"pacman -Sc $(pacman -Qdtq)",
+      "Islevi":"Empty all unnecessary packages"
+    },{
+      "KomutAdi":"pacman -Scc",
+      "Islevi":"Empty the memory of the packages"
+    },{
+      "KomutAdi":"pacman -Sc",
+      "Islevi":"Clean memory"
+    },{
+      "KomutAdi":"pacman -Rs $(pacman -Qtdq)",
+      "Islevi":"Cleans up unneeded packages"
+    },{
+      "KomutAdi":"pacman -Ss package_name",
+      "Islevi":"Search package with explanations"
+    },{
+      "KomutAdi":"pacman -Qs package_name",
+      "Islevi":"Search in installed packages"
+    },{
+      "KomutAdi":"pacman -Si package_name",
+      "Islevi":"Get information about the package"
+    },{
+      "KomutAdi":"pacman -Ql",
+      "Islevi":"List of installed packages"
+    },{
+      "KomutAdi":"pacman -Qdt",
+      "Islevi":"Unnecessary packages list without dependencies"
+    }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

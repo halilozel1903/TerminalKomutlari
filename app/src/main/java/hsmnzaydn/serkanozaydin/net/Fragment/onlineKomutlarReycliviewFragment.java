@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 
 
@@ -38,6 +39,7 @@ private View root;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle("Online Komutlar");
+        Log.d("geldi","geldi");
 
         root=inflater.inflate(R.layout.fragment_reycliview_onlinekomutlar,container,false);
 

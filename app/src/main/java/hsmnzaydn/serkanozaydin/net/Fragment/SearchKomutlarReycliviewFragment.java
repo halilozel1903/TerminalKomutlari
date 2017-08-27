@@ -1,6 +1,8 @@
 package hsmnzaydn.serkanozaydin.net.Fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
@@ -32,36 +34,41 @@ private View root;
     private RecyclerView Komutlar;
     private List<Komut> liste_komut;
     private KomutAdapter adapter;
+    private Boolean language;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 root=inflater.inflate(R.layout.fragment_reycliview_komutlar_search,container,false);
         init();
+        SharedPreferences app_preferences = PreferenceManager
+                .getDefaultSharedPreferences(getContext());
+        language = app_preferences.getBoolean("language",false);
+if (language) {
 
-        String komutlarim[]={"Dosya Komutları","Arama Komutları","Sıkıştırma Komutları","FTP Komutları","Ağ Komutları","İzin Komutları","İzin Komutları","Sistem Komutları","Git Komutları","APT Komutları","Pacman Komutları","Milis Linux Komutları","Fux Project Komutları"};
+    String komutlarim[] = {"Dosya Komutları", "Arama Komutları", "Sıkıştırma Komutları", "FTP Komutları", "Ağ Komutları", "İzin Komutları", "İzin Komutları", "Sistem Komutları", "Git Komutları", "APT Komutları", "Pacman Komutları", "Milis Linux Komutları", "Fux Project Komutları"};
+    JsonParse parse = new JsonParse(getContext(), komutlarim);
+    liste_komut = parse.topluKomutlariCek();
+}
 
+else {
+    String komutlarim[] = {"File Commands", "Search Commands", "Compression Commands", "FTP Commands", "Network Commands", "Permission Commands", "System Commands", "Git Commands", "APT Commands", "Pacman Commands"};
+    JsonParse parse = new JsonParse(getContext(), komutlarim);
+    liste_komut = parse.topluKomutlariCekIngilizce();
+}
 
-        JsonParse parse=new JsonParse(getContext(),komutlarim);
-        liste_komut=parse.topluKomutlariCek();
 
 
 
 
 
         adapter=new KomutAdapter(liste_komut,getContext());
-
         Komutlar.setHasFixedSize(true);
-
         Komutlar.setAdapter(adapter);
-
         Komutlar.setItemAnimator(new DefaultItemAnimator());
-
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         layoutManager.scrollToPosition(0);
-
         Komutlar.setLayoutManager(layoutManager);
 
 

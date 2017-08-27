@@ -10,10 +10,10 @@
         android:id="@+id/icon"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="118dp"
+        android:background="@drawable/icon"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="110dp"
-        android:background="@drawable/icon"/>
+        android:layout_centerHorizontal="true" />
 
 
 

@@ -5,33 +5,41 @@
         <item
             android:id="@+id/ekle"
             android:icon="@drawable/ic_action_icon"
-            android:title="Yerel Komut Ekle" />
+            android:title="@string/yerel_komut_ekle"/>
         <item
             android:id="@+id/online_ekle"
             android:icon="@drawable/ic_action_cloudupload"
-            android:title="Online Komut Ekle" />
+            android:title="@string/online_komut_ekle" />
+        <item
+            android:id="@+id/pdf_aktar"
+            android:icon="@mipmap/ic_pdf"
+            android:title="@string/pdfe_aktar" />
+        <item
+            android:id="@+id/linux_kaynaklar"
+            android:icon="@drawable/ic_pdf"
+            android:title="@string/kullanilabilecek_kaynaklar" />
         <item
             android:id="@+id/other"
             android:icon="@drawable/ic_action_googleplay"
-            android:title="Diğer Uygulamalar" />
+            android:title="@string/diger_uygulamalar" />
         <item
             android:id="@+id/bana_ulas"
             android:icon="@drawable/ic_action_mail"
-            android:title="Bana Ulaş" />
+            android:title="@string/bana_ulas" />
 
 
     </group>
 
-    <item android:title="Diğerleri">
+    <item android:title="@string/diğerleri">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Paylaş" />
+                android:title="@string/paylas" />
             <item
                 android:id="@+id/oyla"
                 android:icon="@drawable/ic_menu_star"
-                android:title="Oyla" />
+                android:title="@string/oyla" />
         </menu>
     </item>
 

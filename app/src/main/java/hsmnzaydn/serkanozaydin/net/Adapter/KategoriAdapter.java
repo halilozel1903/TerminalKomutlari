@@ -54,7 +54,7 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
         private CardView card_view;
         public LinearLayout rel;
 
-        //Hüseyin Serkan Özaydin:Cardviewdeki veriler ile classtaki verileri baplıyoruz
+        //Hüseyin Serkan Özaydin:Cardviewdeki veriler_turkce ile classtaki verileri baplıyoruz
         public ViewHolder(View view) {
             super(view);
 
@@ -88,7 +88,14 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
         if (kategori.getKategoriBasligi().equals("Dosya Komutları")){
             holder.kategoriResmi.setImageResource(R.drawable.folder);
         }
+        if (kategori.getKategoriBasligi().equals("File Commands")){
+            holder.kategoriResmi.setImageResource(R.drawable.folder);
+        }
         if(kategori.getKategoriBasligi().equals("FTP Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.ftp);
+
+        }
+        if(kategori.getKategoriBasligi().equals("FTP Commands")){
             holder.kategoriResmi.setImageResource(R.drawable.ftp);
 
         }
@@ -96,7 +103,15 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.search);
 
         }
+        if(kategori.getKategoriBasligi().equals("Search Commands")){
+            holder.kategoriResmi.setImageResource(R.drawable.search);
+
+        }
         if(kategori.getKategoriBasligi().equals("Sıkıştırma Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.compression);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Compression Commands")){
             holder.kategoriResmi.setImageResource(R.drawable.compression);
 
         }
@@ -104,7 +119,15 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.network);
 
         }
+        if(kategori.getKategoriBasligi().equals("Network Commands")){
+            holder.kategoriResmi.setImageResource(R.drawable.network);
+
+        }
         if(kategori.getKategoriBasligi().equals("İzin Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.lock);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Permission Commands")){
             holder.kategoriResmi.setImageResource(R.drawable.lock);
 
         }
@@ -112,7 +135,15 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.system);
 
         }
+        if(kategori.getKategoriBasligi().equals("System Commands")){
+            holder.kategoriResmi.setImageResource(R.drawable.system);
+
+        }
         if(kategori.getKategoriBasligi().equals("Pacman Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.pacman);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Pacman Commands")){
             holder.kategoriResmi.setImageResource(R.drawable.pacman);
 
         }
@@ -120,7 +151,15 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.fux);
 
         }
+        if(kategori.getKategoriBasligi().equals("Fux Project Commands")){
+            holder.kategoriResmi.setImageResource(R.drawable.fux);
+
+        }
         if(kategori.getKategoriBasligi().equals("Milis Linux Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.milis);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Milis Linux Commands")){
             holder.kategoriResmi.setImageResource(R.drawable.milis);
 
         }
@@ -128,13 +167,29 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
             holder.kategoriResmi.setImageResource(R.drawable.mycode);
 
         }
+        if(kategori.getKategoriBasligi().equals("My Commands")){
+            holder.kategoriResmi.setImageResource(R.drawable.mycode);
+
+        }
         if(kategori.getKategoriBasligi().equals("Git Komutları")){
+            holder.kategoriResmi.setImageResource(R.drawable.git);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Git Commands")){
             holder.kategoriResmi.setImageResource(R.drawable.git);
 
         }if(kategori.getKategoriBasligi().equals("APT Komutları")){
             holder.kategoriResmi.setImageResource(R.drawable.apt);
 
+        }
+        if(kategori.getKategoriBasligi().equals("APT Commands")){
+            holder.kategoriResmi.setImageResource(R.drawable.apt);
+
         }if(kategori.getKategoriBasligi().equals("Online Komutlar")){
+            holder.kategoriResmi.setImageResource(R.drawable.sync);
+
+        }
+        if(kategori.getKategoriBasligi().equals("Online Commands")){
             holder.kategoriResmi.setImageResource(R.drawable.sync);
 
         }
@@ -153,7 +208,7 @@ public class KategoriAdapter  extends RecyclerView.Adapter<KategoriAdapter.ViewH
                 editor.putString("key", json);
                 editor.commit();
 
-                if(kategori.getKategoriBasligi().equals("Online Komutlar")){
+                if(kategori.getKategoriBasligi().equals("Online Komutlar") ||kategori.getKategoriBasligi().equals("Online Commands") ){
                     fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     onlineKomutlarReycliviewFragment fragment = new onlineKomutlarReycliviewFragment();
