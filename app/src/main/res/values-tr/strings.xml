@@ -32,6 +32,8 @@
     <string name="komut_basligi">Komut Başlığı</string>
     <string name="komut_kategorisi">Komut Kategorisi</string>
     <string name="title_activity_drawer">Terminal Komutları</string>
+    <string name="online_komutlar">Online Komutlar</string>
+    <string name="yukleniyor">Yükleniyor</string>
 
 
 </resources>

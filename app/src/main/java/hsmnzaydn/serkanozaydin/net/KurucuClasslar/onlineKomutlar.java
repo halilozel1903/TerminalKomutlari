@@ -1,14 +1,31 @@
 package hsmnzaydn.serkanozaydin.net.KurucuClasslar;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by hsmnzaydn on 22.06.2017.
  */
 
 public class onlineKomutlar {
-    private String Komut;
-    private String komutIcerigi;
-    private String kategori;
-
+    @SerializedName("id")
+    @Expose
+    public String id;
+    @SerializedName("komut")
+    @Expose
+    public String komut;
+    @SerializedName("komut_icerigi")
+    @Expose
+    public String komutIcerigi;
+    @SerializedName("tarih")
+    @Expose
+    public String tarih;
+    @SerializedName("kategori")
+    @Expose
+    public String kategori;
+    @SerializedName("kabul")
+    @Expose
+    public String kabul;
 
     public onlineKomutlar(String Komut,String komutIcerigi,String kategori){
         this.setKomut(Komut);
@@ -17,11 +34,11 @@ public class onlineKomutlar {
     }
 
     public String getKomut() {
-        return Komut;
+        return komut;
     }
 
     public void setKomut(String komut) {
-        Komut = komut;
+        komut = komut;
     }
 
     public String getKomutIcerigi() {

@@ -2,17 +2,16 @@ package hsmnzaydn.serkanozaydin.net;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
-import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -31,16 +30,21 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.util.List;
+
 import hsmnzaydn.serkanozaydin.net.Fragment.KategoriPaylasFragment;
 import hsmnzaydn.serkanozaydin.net.Fragment.KategoriReycliviewFragment;
 import hsmnzaydn.serkanozaydin.net.Fragment.LinuxKaynaklarFragment;
 import hsmnzaydn.serkanozaydin.net.KurucuClasslar.Komut;
+import hsmnzaydn.serkanozaydin.net.KurucuClasslar.onlineKomutlar;
+import hsmnzaydn.serkanozaydin.net.Network.Network;
+import hsmnzaydn.serkanozaydin.net.Network.NetworkHandler;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 private FragmentManager fragmentManager;
     private AdView mAdView;
-    private Boolean language;
+
 
 
 

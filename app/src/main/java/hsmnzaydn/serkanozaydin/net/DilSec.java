@@ -46,6 +46,7 @@ public class DilSec extends AppCompatActivity {
                 Intent intent=new Intent(DilSec.this,DrawerActivity.class);
                 startActivity(intent);
 
+
             }
         });
 
@@ -59,5 +60,11 @@ public class DilSec extends AppCompatActivity {
         turkey= (ImageButton) findViewById(R.id.fragment_dil_secimi_turkey_flag_IMGBUTTON);
         eng= (ImageButton) findViewById(R.id.fragment_dil_secimi_eng_flag_IMGBUTTON);
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        this.finish();
     }
 }

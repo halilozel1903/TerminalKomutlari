@@ -1,6 +1,8 @@
 package hsmnzaydn.serkanozaydin.net;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
@@ -8,6 +10,7 @@ import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 
 public class SplashScreenActivity extends AwesomeSplash {
+    public Boolean first;
 
 
     @Override
@@ -50,7 +53,21 @@ public class SplashScreenActivity extends AwesomeSplash {
 
     @Override
     public void animationsFinished() {
-        Intent intent=new Intent(getApplicationContext(),DrawerActivity.class);
-    startActivity(intent);
+        SharedPreferences app_preferences = PreferenceManager
+                .getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = app_preferences.edit();
+
+        first= app_preferences.getBoolean("first", true);
+        if(first) {
+            editor.putBoolean("first", false);
+            editor.commit();
+            Intent intent = new Intent(getApplicationContext(), DilSec.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(getApplicationContext(), DrawerActivity.class);
+            startActivity(intent);
+        }
+        this.finish();
     }
 }

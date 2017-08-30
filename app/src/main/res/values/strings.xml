@@ -1,45 +1,46 @@
 <resources>
-    <string name="app_name">Terminal Komutlari</string>
-    <string name="title_activity_drawer">Terminal Komutları</string>
-<string name="komut_basligi">Komut Başlığı</string>
-    <string name="komut_aciklamasi">Komut Açıklaması</string>
+    <string name="app_name">Terminal Commands</string>
+    <string name="title_activity_drawer">Terminal Commands</string>
+<string name="komut_basligi">explanation</string>
+    <string name="komut_aciklamasi">Statement</string>
     <string name="komut_kategorisi">Komut Kategorisi</string>
-<string name="ekle">Ekle</string>
+<string name="ekle">Add</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
-    <string name="action_settings">Ara</string>
-    <string name="action_refresh">Yenile</string>
+    <string name="action_settings">Search</string>
+    <string name="action_refresh">Refresh</string>
     <string name="reklam_kimligi" translatable="false">ca-app-pub-7491116475843767/1991222737</string>
     <string name="buyukreklam">ca-app-pub-7491116475843767/5005826397</string>
 
-    <string name="dil_sec">Bir dil seçin</string>
-    <string name="mail_baslik">Terminal Komutları Mail</string>
-    <string name="komut_eklendi">Komutunuz eklendi</string>
-    <string name="komut_gonderildi">Komutunuz gönderildi</string>
-    <string name="yerel_komut_ekle">Yerel komut ekle</string>
-    <string name="online_komut_ekle">Online komut ekle</string>
-    <string name="pdfe_aktar">PDF\'e aktar</string>
-    <string name="kullanilabilecek_kaynaklar">Kullanılabilecek kaynaklar</string>
-    <string name="diger_uygulamalar">Diğer uygulamalar</string>
-    <string name="bana_ulas">Bana ulaş</string>
-    <string name="paylas">Paylaş</string>
-    <string name="oyla">Oyla</string>
-    <string name="diğerleri">Diğerleri</string>
+    <string name="dil_sec">Choose a language</string>
+    <string name="mail_baslik">Subject Of Mail</string>
+    <string name="komut_eklendi">Added Command</string>
+    <string name="komut_gonderildi">Sended Command</string>
+    <string name="online_komut_ekle">Add Online Command</string>
+    <string name="pdfe_aktar">Transfer to PDF</string>
+    <string name="kullanilabilecek_kaynaklar">Sources</string>
+    <string name="diger_uygulamalar">Other Apps</string>
+    <string name="bana_ulas">Contact Me</string>
+    <string name="paylas">Share</string>
+    <string name="oyla">Rating</string>
+    <string name="diğerleri">Others</string>
 
-    <string name="sistem_komutlari">Sistem Komutları</string>
-    <string name="arama_komutlari">Arama Komutları</string>
-    <string name="sikistirma_komutlari">Sıkıştırma Komutları</string>
-    <string name="ftp_komutlari">FTP Komutları</string>
-    <string name="ag_komutlari">Ağ Komutları</string>
-    <string name="izin_komutlari">İzin Komutları</string>
-    <string name="dosya_komutlari">Dosya Komutları</string>
-    <string name="git_komutlari">Git Komutları</string>
-    <string name="apt_komutlari">APT Komutları</string>
-    <string name="pacman_komutlari">Pacman Komutları</string>
+    <string name="sistem_komutlari">System Commands</string>
+    <string name="arama_komutlari">Search Commands</string>
+    <string name="sikistirma_komutlari">Compression Commands</string>
+    <string name="ftp_komutlari">FTP Commands</string>
+    <string name="ag_komutlari">Network Commands</string>
+    <string name="izin_komutlari">Permission Commands</string>
+    <string name="dosya_komutlari">File Commands</string>
+    <string name="git_komutlari">Git Commands</string>
+    <string name="apt_komutlari">APT Commands</string>
+    <string name="pacman_komutlari">Pacman Commands</string>
     <string name="milis_komutlari" translatable="false">Milis Komutları</string>
     <string name="fux_project_komutlari" translatable="false">Fux Project Komutları</string>
     <string name="yerel_komut_ekle">Add Local Command</string>
+    <string name="online_komutlar">Online Commands</string>
+    <string name="yukleniyor">Loading</string>
 
 
 </resources>

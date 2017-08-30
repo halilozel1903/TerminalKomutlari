@@ -32,4 +32,6 @@
     <string name="komut_kategorisi">Command\'s Category</string>
     <string name="title_activity_drawer">Terminal Commands</string>
     <string name="ekle">Add</string>
+    <string name="online_komutlar">Online Commands</string>
+    <string name="yukleniyor">Loading</string>
 </resources>

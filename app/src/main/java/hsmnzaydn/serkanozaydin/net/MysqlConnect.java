@@ -73,7 +73,7 @@ public class MysqlConnect  {
     public void VeriGetir(){
         requestQueue = Volley.newRequestQueue(getContext());
         final List<onlineKomutlar> komutlarList=new ArrayList<onlineKomutlar>();
-        statefulLayout.showLoading("Yükleniyor");
+        statefulLayout.showLoading(context.getResources().getString(R.string.yukleniyor));
 
         JsonArrayRequest jor= new JsonArrayRequest(url_veriCek, new Response.Listener<JSONArray>() {
             @Override
@@ -94,14 +94,7 @@ public class MysqlConnect  {
                                     }
                             }
 
-                            onlineKomutlarAdapter adapter=new onlineKomutlarAdapter(komutlarList,getContext());
 
-                            recyclerView.setHasFixedSize(true);
-
-                            recyclerView.setAdapter(adapter);
-
-                            recyclerView.setItemAnimator(new DefaultItemAnimator());
-                            adapter.notifyDataSetChanged();
 
                             statefulLayout.showContent();
 

@@ -38,11 +38,7 @@ public class KategoriPaylasFragment extends Fragment {
     List<String> secilenler = new ArrayList<>();
     Button button;
     String stringBuilder = "";
-    InterstitialAd interstitialAd;
     Boolean language;
-    private StatefulLayout statefulLayout;
-    SharedPreferences app_preferences = PreferenceManager
-            .getDefaultSharedPreferences(getContext());
 
 
     @Nullable
@@ -61,7 +57,9 @@ public class KategoriPaylasFragment extends Fragment {
         pacman = (CheckBox) root.findViewById(R.id.paylas_pacmanKomutlari);
         milis = (CheckBox) root.findViewById(R.id.paylas_milisKomutlari);
         fux = (CheckBox) root.findViewById(R.id.paylas_fuxKomutlari);
-
+        SharedPreferences app_preferences= PreferenceManager
+                .getDefaultSharedPreferences(getContext());
+        language = app_preferences.getBoolean("language", false);
         if(!language){
             milis.setVisibility(View.INVISIBLE);
             fux.setVisibility(View.INVISIBLE);
@@ -72,7 +70,6 @@ public class KategoriPaylasFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                language = app_preferences.getBoolean("language", false);
                 if (language) {
 
 
