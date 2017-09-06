@@ -16,5 +16,5 @@ public interface RetrofitInterface {
     Call<onlineKomutlar[]> getJsonValues();
 
     @POST("/baglanti/veriGonder.php")
-    Call<onlineKomutlar[]> post(@Body Komut komut);
+    Call<onlineKomutlar> post(@Body onlineKomutlar komut);
 }

@@ -91,13 +91,24 @@ public class KomutAdapter extends RecyclerView.Adapter<KomutAdapter.ViewHolder>{
             @Override
             public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                 if(favorite){
-                    db.KayitEkle(komut);
-                    Snackbar.make(holder.linearLayout,"Komut benim komutlarım kategorisine eklendi",Snackbar.LENGTH_LONG).show();
+                    try{
+                        db.KayitEkle(komut);
+                        Snackbar.make(holder.linearLayout,context.getString(R.string.added_favorite),Snackbar.LENGTH_LONG).show();
+                    }
+                    catch (Exception e){
+
+                    }
+
 
                 }
                 else {
-                   db.kayitSil(komut.getKomutBasligi());
-                    Snackbar.make(holder.linearLayout,"Komut benim komutlarım kategorisinden çıkarıldı",Snackbar.LENGTH_LONG).show();
+                    try {
+                        db.kayitSil(komut.getKomutBasligi());
+                        Snackbar.make(holder.linearLayout,context.getString(R.string.deleted_favorite),Snackbar.LENGTH_LONG).show();
+                    }
+                    catch (Exception e){
+
+                    }
                 }
             }
         });

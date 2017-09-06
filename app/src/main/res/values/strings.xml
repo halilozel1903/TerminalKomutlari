@@ -42,5 +42,8 @@
     <string name="online_komutlar">Online Commands</string>
     <string name="yukleniyor">Loading</string>
 
+    <string name="added_favorite">Added to \"My Commands\"</string>
+    <string name="deleted_favorite">Deleted from \"My Commands\"</string>
+
 
 </resources>

@@ -9,6 +9,9 @@ import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 
+import hsmnzaydn.serkanozaydin.net.KurucuClasslar.onlineKomutlar;
+import hsmnzaydn.serkanozaydin.net.Network.Network;
+
 public class SplashScreenActivity extends AwesomeSplash {
     public Boolean first;
 
@@ -56,6 +59,8 @@ public class SplashScreenActivity extends AwesomeSplash {
         SharedPreferences app_preferences = PreferenceManager
                 .getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = app_preferences.edit();
+
+
 
         first= app_preferences.getBoolean("first", true);
         if(first) {

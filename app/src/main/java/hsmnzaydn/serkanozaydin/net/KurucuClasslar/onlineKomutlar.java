@@ -33,6 +33,7 @@ public class onlineKomutlar {
         this.setKategori(kategori);
     }
 
+
     public String getKomut() {
         return komut;
     }

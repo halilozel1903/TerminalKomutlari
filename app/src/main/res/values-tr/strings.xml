@@ -34,6 +34,8 @@
     <string name="title_activity_drawer">Terminal Komutları</string>
     <string name="online_komutlar">Online Komutlar</string>
     <string name="yukleniyor">Yükleniyor</string>
+    <string name="added_favorite">Benim komutlarım kategorisine eklendi</string>
+    <string name="deleted_favorite">Komut benim komutlarım kategorisinden çıkarıldı</string>
 
 
 </resources>
