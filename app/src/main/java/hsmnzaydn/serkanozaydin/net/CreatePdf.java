@@ -27,14 +27,9 @@ public class CreatePdf {
         this.setContext(context);
     }
 
-
-
-
     public void createPDF(String stringBuilder){
-
         outPath=getContext().getExternalCacheDir()+"/terminalKomutlari.pdf";
         Document doc=new Document();
-
 
         try{
             PdfWriter.getInstance(doc,new FileOutputStream(outPath));
@@ -57,7 +52,7 @@ public class CreatePdf {
         emailIntent .putExtra(Intent.EXTRA_EMAIL, "");
         emailIntent .putExtra(Intent.EXTRA_STREAM, path);
         emailIntent .putExtra(Intent.EXTRA_SUBJECT, "Terminal Komutları PDF");
-        getContext().startActivity(Intent.createChooser(emailIntent , "https://play.google.com/store/apps/details?id=hsmnzaydn.serkanozaydin.net&hl=tr"));
+        getContext().startActivity(Intent.createChooser(emailIntent, "Terminal Komutları PDF Paylaş"));
     }
 
     public Context getContext() {

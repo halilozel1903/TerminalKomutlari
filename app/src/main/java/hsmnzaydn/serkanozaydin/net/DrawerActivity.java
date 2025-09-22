@@ -140,7 +140,8 @@ private FragmentManager fragmentManager;
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=hüseyin serkan özaydin&hl=tr")));
             } catch (android.content.ActivityNotFoundException anfe) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/search?q=h%C3%BCseyin%20serkan%20%C3%B6zaydin&hl=tr")));
-            }        } else if (id == R.id.bana_ulas) {
+            }
+        } else if (id == R.id.bana_ulas) {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/html");
             intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "serkan.zaydn@gmail.com" });
@@ -148,17 +149,13 @@ private FragmentManager fragmentManager;
             intent.putExtra(Intent.EXTRA_TEXT, "");
             startActivity(Intent.createChooser(intent, "Send Email"));
 
-        }else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_share) {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
-
             shareIntent.setType("text/plain");
-
             shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=hsmnzaydn.serkanozaydin.net");
-
             startActivity(Intent.createChooser(shareIntent, "Terminal komutları"));
 
-        }
-        else if (id == R.id.ekle) {
+        } else if (id == R.id.ekle) {
             AlertDialog.Builder yerelKomut=new AlertDialog.Builder(DrawerActivity.this);
             View mView=getLayoutInflater().inflate(R.layout.dialog_yerel_komut_ekle,null);
             final EditText yerelBaslik= (EditText) mView.findViewById(R.id.dialog_yerel_komut_ekle_baslik);

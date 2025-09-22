@@ -31,10 +31,9 @@ public class DilSec extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editor.putBoolean("language", true);
-                editor.commit();
+                editor.apply();
                 Intent intent=new Intent(DilSec.this,DrawerActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -42,16 +41,11 @@ public class DilSec extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editor.putBoolean("language", false);
-                editor.commit();
+                editor.apply();
                 Intent intent=new Intent(DilSec.this,DrawerActivity.class);
                 startActivity(intent);
-
-
             }
         });
-
-
-        editor.commit();
 
 
     }
@@ -59,7 +53,6 @@ public class DilSec extends AppCompatActivity {
     public void init(){
         turkey= (ImageButton) findViewById(R.id.fragment_dil_secimi_turkey_flag_IMGBUTTON);
         eng= (ImageButton) findViewById(R.id.fragment_dil_secimi_eng_flag_IMGBUTTON);
-
     }
 
     @Override
