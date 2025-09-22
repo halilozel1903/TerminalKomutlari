@@ -45,22 +45,15 @@ root=inflater.inflate(R.layout.fragment_reycliview_komutlar_search,container,fal
                 .getDefaultSharedPreferences(getContext());
         language = app_preferences.getBoolean("language",false);
 if (language) {
-
-    String komutlarim[] = {"Dosya Komutları", "Arama Komutları", "Sıkıştırma Komutları", "FTP Komutları", "Ağ Komutları", "İzin Komutları", "İzin Komutları", "Sistem Komutları", "Git Komutları", "APT Komutları", "Pacman Komutları", "Milis Linux Komutları", "Fux Project Komutları"};
+    String komutlarim[] = {"Dosya Komutları", "Arama Komutları", "Sıkıştırma Komutları", "FTP Komutları", "Ağ Komutları", "İzin Komutları", "Sistem Komutları", "Git Komutları", "APT Komutları", "Pacman Komutları", "Milis Linux Komutları", "Fux Project Komutları"};
     JsonParse parse = new JsonParse(getContext(), komutlarim);
     liste_komut = parse.topluKomutlariCek();
 }
-
 else {
-    String komutlarim[] = {"File Commands", "Search Commands", "Compression Commands", "FTP Commands", "Network Commands", "Permission Commands", "System Commands", "Git Commands", "APT Commands", "Pacman Commands"};
+    String komutlarim[] = {"File Commands", "Search Commands", "Compression Commands", "FTP Commands", "Network Commands", "Permission Commands", "System Commands", "Git Commands", "APT Commands", "Pacman Commands", "Milis Linux Commands", "Fux Project Commands"};
     JsonParse parse = new JsonParse(getContext(), komutlarim);
     liste_komut = parse.topluKomutlariCekIngilizce();
 }
-
-
-
-
-
 
         adapter=new KomutAdapter(liste_komut,getContext());
         Komutlar.setHasFixedSize(true);
@@ -71,30 +64,17 @@ else {
         layoutManager.scrollToPosition(0);
         Komutlar.setLayoutManager(layoutManager);
 
-
-
-
-
-
-
-
-
         return root;
     }
 
     public void init(){
         Komutlar= (RecyclerView) root.findViewById(R.id.fragment_reycliview_komutlar_search_reycliview);
-
-
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         setHasOptionsMenu(true);
-
-
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -105,8 +85,6 @@ else {
         searchView.setIconified(false);
         searchView.setOnQueryTextListener(this);
         searchView.setQueryHint("Ara...");
-
-        super.onCreateOptionsMenu(menu, inflater);
 
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -126,8 +104,6 @@ else {
         }
 
         adapter.setFilter(newList);
-
-
         return true;
     }
     @Override
@@ -139,9 +115,5 @@ else {
     public boolean onMenuItemActionCollapse(MenuItem item) {
         return true;
     }
-
-
-
-
 
 }
